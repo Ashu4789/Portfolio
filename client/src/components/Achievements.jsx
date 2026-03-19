@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import { Trophy, Code, Star, ExternalLink } from 'lucide-react';
 
 const achievementsData = [
-  { icon: <Star className="w-8 h-8 text-purple-400" />, count: "Govt.", text: "Odisha Recognition", date: "June 2025", description: "Represented the planning and convergence department of Odisha government in SDG IEC kiosk held at LPU.", credentialLink: "https://drive.google.com/file/d/1yJGnQGRYrFe1ED2EB2_okztTh3AaetTJ/view" },
-  { icon: <Trophy className="w-8 h-8 text-yellow-400" />, count: "1st", text: "Zerodha Varsity Quiz", date: "January 2025", description: "Secured 1st position and received cash prize in university level Zerodha Varsity Quiz.", credentialLink: "https://drive.google.com/file/d/1XH_3VKbi_nYO91AAcSBKvHk2hqygz65o/view" },
-  { icon: <Code className="w-8 h-8 text-blue-400" />, count: "200+", text: "DSA Problems Solved", date: "December 2025", description: "Solved 100+ problems on LeetCode with 200+ submissions and 50+ on other platforms.", credentialLink: "https://leetcode.com/u/Ashutosh4789/" }
+  { icon: <Star className="w-8 h-8 text-purple-400" />, count: "Govt.", text: "Odisha Recognition", date: "June 2025", description: "Represented the planning and convergence department of Odisha government in SDG IEC kiosk held at LPU.", credentialLink: "https://drive.google.com/file/d/1yJGnQGRYrFe1ED2EB2_okztTh3AaetTJ/view", bgImage: "https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80&w=2070&auto=format&fit=crop" },
+  { icon: <Trophy className="w-8 h-8 text-yellow-400" />, count: "1st", text: "Zerodha Varsity Quiz", date: "January 2025", description: "Secured 1st position and received cash prize in university level Zerodha Varsity Quiz.", credentialLink: "https://drive.google.com/file/d/1XH_3VKbi_nYO91AAcSBKvHk2hqygz65o/view", bgImage: "https://images.unsplash.com/photo-1579548122080-c35fd6820ecb?q=80&w=2070&auto=format&fit=crop" },
+  { icon: <Code className="w-8 h-8 text-blue-400" />, count: "200+", text: "DSA Problems Solved", date: "December 2025", description: "Solved 100+ problems on LeetCode with 200+ submissions and 50+ on other platforms.", credentialLink: "https://leetcode.com/u/Ashutosh4789/", bgImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop" }
 ];
 
 const Achievements = () => {
@@ -24,15 +24,22 @@ const Achievements = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.2 }}
-            className="glass-card p-8 flex flex-col items-center justify-center text-center relative overflow-hidden group hover:-translate-y-2 transition-transform"
+            className="glass-card p-10 flex flex-col items-center justify-center text-center relative overflow-hidden group hover:-translate-y-2 transition-transform min-h-[400px]"
           >
-            <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-full filter blur-[20px] group-hover:bg-emerald-500/10 transition-colors duration-500"></div>
+            {/* Background Image Layer */}
+            <div className="absolute inset-0 z-0 overflow-hidden">
+               <div className="absolute inset-0 bg-slate-950/70 group-hover:bg-slate-950/50 transition-colors duration-500 z-10 pointer-events-none"></div>
+               <img src={item.bgImage} alt="" className="w-full h-full object-cover opacity-30 group-hover:opacity-50 group-hover:scale-110 transition-all duration-700 mix-blend-screen" />
+            </div>
             
-            <div className="mb-4">{item.icon}</div>
-            <h3 className="text-4xl font-orbitron font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">{item.count}</h3>
-            <p className="text-emerald-400 font-medium mb-1">{item.text}</p>
-            <span className="text-xs font-mono text-slate-500 bg-slate-800/50 px-2 py-1 rounded inline-block mb-3">{item.date}</span>
-            <p className="text-sm text-slate-400 leading-relaxed mb-4">{item.description}</p>
+            <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-full filter blur-[20px] group-hover:bg-emerald-500/20 transition-colors duration-500 z-10"></div>
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-emerald-500/10 rounded-full filter blur-[40px] transition-colors duration-500 z-10"></div>
+            
+            <div className="mb-6 relative z-20 p-4 bg-slate-900/50 rounded-full border border-slate-700/50 backdrop-blur-md group-hover:border-emerald-500/50 transition-colors">{item.icon}</div>
+            <h3 className="text-5xl font-orbitron font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors relative z-20">{item.count}</h3>
+            <p className="text-emerald-400 font-semibold mb-2 relative z-20 text-lg">{item.text}</p>
+            <span className="text-xs font-mono text-slate-300 bg-slate-900/80 border border-slate-700 px-3 py-1 rounded inline-block mb-4 relative z-20">{item.date}</span>
+            <p className="text-sm text-slate-300 leading-relaxed mb-6 relative z-20 flex-1">{item.description}</p>
             {item.credentialLink && (
               <a href={item.credentialLink} target="_blank" rel="noopener noreferrer" className="mt-auto flex items-center gap-2 text-xs font-bold text-emerald-500 hover:text-emerald-400 transition-colors relative z-10">
                 View Credential <ExternalLink className="w-3 h-3" />

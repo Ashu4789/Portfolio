@@ -17,11 +17,24 @@ function App() {
       <CustomCursor />
       
       {/* Background elements */}
-      <div className="fixed inset-0 z-[-1] bg-slate-950">
-        <div className="absolute top-0 -left-40 w-96 h-96 bg-emerald-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-20"></div>
-        <div className="absolute top-0 -right-40 w-96 h-96 bg-blue-900 rounded-full mix-blend-multiply filter blur-[128px] opacity-20"></div>
-        <div className="absolute -bottom-40 left-20 w-96 h-96 bg-red-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-10"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]"></div>
+      <div className="fixed inset-0 z-[-1] bg-slate-950 overflow-hidden">
+        {/* Stock background image */}
+        <img 
+          src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=2094&auto=format&fit=crop" 
+          alt="Portfolio Background" 
+          className="absolute inset-0 w-full h-full object-cover opacity-100 select-none pointer-events-none" 
+        />
+        {/* Dark overlay for contrast */}
+        <div className="absolute inset-0 bg-slate-950/60"></div>
+        {/* Radial vignette */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#020617_120%)] pointer-events-none"></div>
+
+        <div className="absolute top-0 -left-40 w-96 h-96 bg-emerald-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 pointer-events-none"></div>
+        <div className="absolute top-0 -right-40 w-96 h-96 bg-blue-900 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 pointer-events-none"></div>
+        <div className="absolute -bottom-40 left-20 w-96 h-96 bg-red-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-10 pointer-events-none"></div>
+        
+        {/* Grid overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f1a_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f1a_1px,transparent_1px)] bg-[size:14px_24px] pointer-events-none"></div>
       </div>
 
       <Navbar />
