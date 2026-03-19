@@ -1,14 +1,43 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, Github, Linkedin, Send } from 'lucide-react';
+import { Mail, Github, Linkedin, Send, Code2, Instagram } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(`Thank you, ${formData.name}! Your message has been sent.`);
-    setFormData({ name: '', email: '', message: '' });
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+    
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "b46fe770-5470-44e2-9a77-ac00cff1b20d", // IMPORTANT: Add your Web3Forms access key
+          ...formData
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+    }
+    
+    setIsSubmitting(false);
+    setTimeout(() => setSubmitStatus(null), 5000);
   };
 
   return (
@@ -33,21 +62,38 @@ const Contact = () => {
 
           <div className="space-y-6">
             <div className="flex items-center gap-4 text-slate-300 hover:text-emerald-400 transition-colors">
-              <Mail className="w-6 h-6 text-emerald-500" />
-              <span>ashutosh@example.com</span>
+              <Mail className="w-6 h-6 text-emerald-500 flex-shrink-0" />
+              <div className="flex flex-col">
+                <span className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Official Email</span>
+                <a href="mailto:ashutoshmohanty2004@gmail.com">ashutoshmohanty2004@gmail.com</a>
+              </div>
             </div>
             <div className="flex items-center gap-4 text-slate-300 hover:text-emerald-400 transition-colors">
-              <Phone className="w-6 h-6 text-emerald-500" />
-              <span>+91 9876543210</span>
+              <Mail className="w-6 h-6 text-emerald-500 flex-shrink-0" />
+              <div className="flex flex-col">
+                <span className="text-xs text-slate-500 uppercase tracking-wider font-semibold">For Queries</span>
+                <a href="mailto:nationalacdasboard2025@gmail.com">nationalacdasboard2025@gmail.com</a>
+              </div>
             </div>
           </div>
 
-          <div className="flex gap-6 mt-12">
-            <a href="#" className="w-12 h-12 glass flex items-center justify-center rounded-full hover:bg-emerald-500 hover:text-slate-900 transition-all text-slate-300">
+          <div className="flex gap-4 mt-12 flex-wrap">
+            <a href="https://github.com/Ashu4789" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass flex items-center justify-center rounded-full hover:bg-emerald-500 hover:text-slate-900 transition-all text-slate-300" title="GitHub">
               <Github className="w-5 h-5" />
             </a>
-            <a href="#" className="w-12 h-12 glass flex items-center justify-center rounded-full hover:bg-emerald-500 hover:text-slate-900 transition-all text-slate-300">
+            <a href="https://www.linkedin.com/in/ashutoshmohanty24" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass flex items-center justify-center rounded-full hover:bg-emerald-500 hover:text-slate-900 transition-all text-slate-300" title="LinkedIn">
               <Linkedin className="w-5 h-5" />
+            </a>
+            <a href="https://x.com/AshutoshMo72374" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass flex items-center justify-center rounded-full hover:bg-emerald-500 hover:text-slate-900 transition-all text-slate-300" title="X">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/ashu_4789x/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass flex items-center justify-center rounded-full hover:bg-emerald-500 hover:text-slate-900 transition-all text-slate-300" title="Instagram">
+              <Instagram className="w-5 h-5" />
+            </a>
+            <a href="https://leetcode.com/u/Ashutosh4789/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass flex items-center justify-center rounded-full hover:bg-emerald-500 hover:text-slate-900 transition-all text-slate-300" title="LeetCode">
+              <Code2 className="w-5 h-5" />
             </a>
           </div>
         </motion.div>
@@ -98,10 +144,23 @@ const Contact = () => {
             </div>
             <button 
               type="submit" 
-              className="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2"
+              disabled={isSubmitting}
+              className="w-full bg-emerald-500 hover:bg-emerald-400 disabled:opacity-50 disabled:cursor-not-allowed text-slate-950 font-bold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 mt-4"
             >
-              Send Message <Send className="w-4 h-4" />
+              {isSubmitting ? 'Sending...' : 'Send Message'} 
+              {!isSubmitting && <Send className="w-4 h-4" />}
             </button>
+
+            {submitStatus === 'success' && (
+              <div className="p-4 bg-emerald-500/20 border border-emerald-500 text-emerald-400 rounded-lg text-sm text-center mt-4">
+                Message sent successfully! I'll get back to you soon.
+              </div>
+            )}
+            {submitStatus === 'error' && (
+              <div className="p-4 bg-red-500/20 border border-red-500 text-red-400 rounded-lg text-sm text-center mt-4">
+                Something went wrong. Please try again or email me directly.
+              </div>
+            )}
           </form>
         </motion.div>
       </div>

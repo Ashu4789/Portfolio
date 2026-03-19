@@ -41,15 +41,20 @@ const About = () => {
           
           <div className="relative group mx-auto w-3/4 md:w-full max-w-sm cursor-pointer mt-8 md:mt-0">
             <div className="absolute inset-0 bg-emerald-500 rounded-2xl transform translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-300"></div>
-            <div className="relative glass-card aspect-[4/5] rounded-2xl overflow-hidden z-10 box-glow border-emerald-500/30 group-hover:border-emerald-500 transition-colors duration-300">
+            <div className="relative glass-card aspect-[4/5] rounded-2xl overflow-hidden z-10 box-glow border-emerald-500/30 group-hover:border-emerald-500 transition-colors duration-500">
               <div className="w-full h-full relative">
-                 <div className="absolute inset-0 bg-emerald-900/40 mix-blend-multiply group-hover:opacity-0 transition-opacity duration-300 z-10"></div>
-                 <img src="https://avatars.githubusercontent.com/Ashu4789" alt="Ashutosh Mohanty" className="w-full h-full object-cover z-0" />
+                 <div className="absolute inset-0 bg-emerald-500/10 group-hover:opacity-0 transition-opacity duration-500 z-10 pointer-events-none"></div>
+                 <img 
+                    src="/IMG-20241108-WA0050.jpg.jpeg" 
+                    alt="Ashutosh Mohanty" 
+                    className="w-full h-full object-cover object-center grayscale-[30%] group-hover:grayscale-0 transition-all duration-500 z-0" 
+                    style={{ imageRendering: '-webkit-optimize-contrast', transform: 'translateZ(0)' }}
+                 />
               </div>
             </div>
             
             <div className="mt-12 text-center">
-              <a href="/resume.pdf" download className="inline-flex items-center gap-2 px-8 py-3 bg-emerald-500 text-slate-950 rounded-full font-bold hover:bg-emerald-400 transition-colors shadow-[0_0_15px_rgba(16,185,129,0.5)]">
+              <a href="/Ashutosh Mohanty12307673CV2026.pdf" download="Ashutosh_Mohanty_CV.pdf" className="inline-flex items-center gap-2 px-8 py-3 bg-emerald-500 text-slate-950 rounded-full font-bold hover:bg-emerald-400 transition-colors shadow-[0_0_15px_rgba(16,185,129,0.5)]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                 Download Resume
               </a>

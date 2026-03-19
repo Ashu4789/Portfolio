@@ -1,0 +1,58 @@
+Ashutosh Mohanty 
+LinkedIn:  linkedin.com/in/ashutoshmohanty24                                                        Email:  ashutoshmohanty2004@gmail.com 
+GitHub:    github.com/Ashu4789      Mobile: 91-9348825087 
+ 
+SKILLS 
+• Languages: C, C++, Java, JavaScript, PHP, Python 
+• Frameworks: ReactJS, NodeJS, ExpressJS, Tailwind CSS 
+• Tools/Platforms: MySQL, PostgreSQL, MongoDB, Git, GitHub, Linux, windows, CI/CD, Docker 
+• Soft Skills: Problem-Solving, Team Collaboration, Adaptability, Leadership, Creative Thinking 
+ 
+PROJECTS 
+• National Accounts Dashboard | GitHub                                                                                                  January 2026 
+• A Dashboard that unifies fragmented national accounts and macroeconomic datasets  
+into a single dashboard for faster, accurate policy and economic analysis. 
+• Some of its features include Interactive time series charts, sector/region drill downs, 
+exportable reports, and automated data refresh. 
+• The project contains automated ETL with incremental caching and on demand  
+aggregations powering real time dynamic visualizations. 
+Tech: NodeJS, ReactJS, ExpressJS, MongoDB, Google Cloud API, Tailwind CSS, Vercel 
+ 
+• Tour Guide Management Website | GitHub                                                                                                  May 2025 
+• A tour management platform with booking, guide assignment, and custom trip planning.  
+• Has an admin dashboard for efficient CRUD operations and package management. 
+• Contains customer feedback, ratings, and a guide-booking ecosystem for enhanced usability. 
+ Tech: HTML, CSS, JavaScript, PHP, MySQL, Tailwind CSS                          
+• Business Travel Chat Bot | GitHub                                                                                                               April 2025  
+• An AI-powered travel planning platform for hotel and flight booking and itineraries 
+• Contains deal search and chat-based interactions for seamless user assistance. 
+• A futuristic UI with custom interactive elements for enhanced engagement. 
+Tech: HTML, JavaScript, Gemini API, Tailwind CSS                         
+  TRAINING 
+• Data Structures and Algorithms with CPP | CipherShools | Certificate                                                     July 2025 
+• Completion of a 70-hour structured training program in Data Structures and Algorithms 
+• Proficiency in algorithmic optimization and efficient solution design 
+• Exposure to real-world implementation of DSA concepts through practical scenarios  
+CERTIFICATES 
+• Cloud Computing | NPTEL | Certificate                                                   April 2025 
+• Logic Building, Programming and Data Structures | LPU CPE | Certificate                                                      July 2024 
+• Unrevealing Basic Python Towards ML/AI | CSEPATHSHALA | Certificate                                March 2024 
+ACHIEVEMENTS 
+• Solved 200+ DSA Problems across platforms                                 December 2025 
+ Solved 100+ problems on LeetCode with 200+ submissions and 50+ on other platforms. 
+held at LPU. 
+• Got Felicitated for Contributing at Vikas Mela 2025 by Govt. of Odisha | Certificate                             June 2025 
+Represented the planning and convergence department of Odisha government in SDG IEC kiosk  
+• Attained 1st Position in Zerodha Varsity Quiz | Certificate                                                                   January 2025 
+Secured 1st position and received cash prize in university level Zerodha Varsity Quiz  
+EDUCATION 
+Lovely Professional University                                                                                                               Phagwara, Punjab 
+Bachelor of Technology - Computer Science and Engineering;  CGPA: 8.02               August 2023 – July 2027  
+Prabhujee English Medium School      Bhubaneswar, Odisha 
+Intermediate;  Percentage: 82.8%                                                                                   April 2020 - March 2022 
+Prabhujee English Medium School Bhubaneswar, Odisha 
+Matriculation;  Percentage: 97.4%                                                                                   April 2018 - March 2020 
+ 
+• 
+• 
+• 
