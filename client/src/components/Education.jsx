@@ -29,8 +29,8 @@ const Education = () => {
   return (
     <section id="education" className="py-24 relative">
       <div className="flex items-center gap-4 mb-16">
-        <h2 className="text-4xl font-bold text-white"><span className="text-emerald-500">04.</span> Education</h2>
-        <div className="h-[1px] bg-slate-700 flex-1 max-w-xs"></div>
+        <h2 className="text-4xl font-bold text-slate-900 dark:text-white"><span className="text-emerald-500">04.</span> Education</h2>
+        <div className="h-[1px] bg-slate-200 dark:bg-slate-700 flex-1 max-w-xs transition-colors"></div>
       </div>
 
       <div className="max-w-3xl mx-auto relative">
@@ -48,20 +48,20 @@ const Education = () => {
               className={`flex flex-col md:flex-row gap-8 md:justify-between items-start md:items-center ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
             >
               {/* Timeline Dot */}
-              <div className="absolute left-[13px] md:left-1/2 w-4 h-4 bg-emerald-500 rounded-full border-4 border-slate-900 transform md:-translate-x-1/2 mt-1 md:mt-0 shadow-[0_0_10px_#10b981]"></div>
+              <div className="absolute left-[13px] md:left-1/2 w-4 h-4 bg-emerald-500 rounded-full border-4 border-slate-50 dark:border-slate-950 transform md:-translate-x-1/2 mt-1 md:mt-0 shadow-[0_0_10px_#10b981] transition-colors"></div>
               
               <div className={`w-full md:w-[45%] pl-12 md:pl-0 ${index % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}>
                 <div className="glass-card p-6 inline-block w-full border-l-4 border-l-emerald-500 group overflow-hidden relative">
                   {edu.image && (
                     <div className="w-full h-48 mb-6 rounded-lg overflow-hidden relative">
-                      <div className="absolute inset-0 bg-emerald-900/30 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                      <div className="absolute inset-0 bg-emerald-100/30 dark:bg-slate-900/60 group-hover:bg-transparent dark:group-hover:bg-transparent transition-colors duration-500 z-10"></div>
                       <img src={edu.image} alt={edu.institution} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
                     </div>
                   )}
-                  <span className="text-emerald-400 font-mono text-sm block mb-2">{edu.period}</span>
-                  <h3 className="text-xl font-bold text-white mb-1 group-hover:text-emerald-400 transition-colors">{edu.degree}</h3>
-                  <h4 className="text-slate-400 font-medium mb-3">{edu.institution}</h4>
-                  <p className="text-sm text-slate-500 leading-relaxed">{edu.details}</p>
+                  <span className="text-emerald-600 dark:text-emerald-400 font-mono text-sm block mb-2">{edu.period}</span>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">{edu.degree}</h3>
+                  <h4 className="text-slate-700 dark:text-slate-300 font-medium mb-3 transition-colors">{edu.institution}</h4>
+                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed transition-colors">{edu.details}</p>
                 </div>
               </div>
             </motion.div>

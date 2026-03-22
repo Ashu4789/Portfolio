@@ -66,18 +66,18 @@ const ProjectCard = ({ project, index, onOpenDetails }) => {
       className="glass-card flex flex-col relative overflow-hidden group min-h-[450px] p-0"
     >
       <div className="relative w-full h-56 overflow-hidden shrink-0 hidden sm:block">
-        <div className="absolute inset-0 bg-slate-900/60 group-hover:bg-slate-900/20 transition-colors duration-500 z-10 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-white/60 dark:bg-slate-900/60 group-hover:bg-white/20 dark:group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
         <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
         
-        <div className="absolute top-4 left-4 z-20 w-10 h-10 rounded-full bg-slate-900/80 backdrop-blur-md flex items-center justify-center border border-emerald-500/50 text-emerald-400 font-bold">
+        <div className="absolute top-4 left-4 z-20 w-10 h-10 rounded-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md flex items-center justify-center border border-emerald-500/50 text-emerald-600 dark:text-emerald-400 font-bold">
           {index + 1}
         </div>
         
         <div className="absolute top-4 right-4 z-20 flex gap-3">
-            <a href={project.github} target="_blank" rel="noopener noreferrer" onPointerDown={(e) => e.stopPropagation()} className="w-10 h-10 rounded-full bg-slate-900/80 backdrop-blur-md flex items-center justify-center border border-slate-700 text-slate-300 hover:text-emerald-400 hover:border-emerald-500/50 transition-all cursor-pointer">
+            <a href={project.github} target="_blank" rel="noopener noreferrer" onPointerDown={(e) => e.stopPropagation()} className="w-10 h-10 rounded-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md flex items-center justify-center border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-500/50 transition-all cursor-pointer">
               <Github className="w-5 h-5" />
             </a>
-            <a href={project.live} target="_blank" rel="noopener noreferrer" onPointerDown={(e) => e.stopPropagation()} className="w-10 h-10 rounded-full bg-slate-900/80 backdrop-blur-md flex items-center justify-center border border-slate-700 text-slate-300 hover:text-emerald-400 hover:border-emerald-500/50 transition-all cursor-pointer">
+            <a href={project.live} target="_blank" rel="noopener noreferrer" onPointerDown={(e) => e.stopPropagation()} className="w-10 h-10 rounded-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md flex items-center justify-center border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-500/50 transition-all cursor-pointer">
               <ExternalLink className="w-5 h-5" />
             </a>
         </div>
@@ -85,29 +85,29 @@ const ProjectCard = ({ project, index, onOpenDetails }) => {
       
       <div className="p-6 md:p-8 flex flex-col flex-1 relative z-20">
         <div className="flex justify-between items-start mb-4">
-          <h3 className="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors leading-tight">{project.title}</h3>
+          <h3 className="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors leading-tight">{project.title}</h3>
           
           {/* Mobile only links */}
           <div className="flex gap-3 sm:hidden relative z-50">
-            <a href={project.github} target="_blank" rel="noopener noreferrer" onPointerDown={(e) => e.stopPropagation()} className="text-slate-400 hover:text-emerald-400">
+            <a href={project.github} target="_blank" rel="noopener noreferrer" onPointerDown={(e) => e.stopPropagation()} className="text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
               <Github className="w-5 h-5" />
             </a>
-            <a href={project.live} target="_blank" rel="noopener noreferrer" onPointerDown={(e) => e.stopPropagation()} className="text-slate-400 hover:text-emerald-400">
+            <a href={project.live} target="_blank" rel="noopener noreferrer" onPointerDown={(e) => e.stopPropagation()} className="text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
               <ExternalLink className="w-5 h-5" />
             </a>
           </div>
         </div>
         
-        {project.date && <span className="text-xs font-mono text-emerald-400 mb-4 block">{project.date}</span>}
+        {project.date && <span className="text-xs font-mono text-emerald-600 dark:text-emerald-400 mb-4 block">{project.date}</span>}
         
-        <p className="text-slate-400 leading-relaxed text-sm mb-6 flex-1">
+        <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm mb-6 flex-1">
           {project.description}
         </p>
         
-        <div className="flex flex-wrap items-center gap-3 mt-auto pt-4 border-t border-slate-800 relative z-50">
+        <div className="flex flex-wrap items-center gap-3 mt-auto pt-4 border-t border-slate-200 dark:border-slate-800 relative z-50 transition-colors">
           <div className="flex flex-wrap gap-2 flex-1">
             {project.tech.map((t, i) => (
-              <span key={i} className="text-xs font-mono text-emerald-300 bg-emerald-900/30 px-2 py-1 rounded">
+              <span key={i} className="text-xs font-mono text-emerald-700 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-500/10 px-2 py-1 rounded transition-colors">
                 {t}
               </span>
             ))}
@@ -115,7 +115,7 @@ const ProjectCard = ({ project, index, onOpenDetails }) => {
           <button 
             onClick={() => onOpenDetails(project)}
             onPointerDown={(e) => e.stopPropagation()}
-            className="ml-auto text-xs font-bold text-slate-950 bg-emerald-500 hover:bg-emerald-400 py-2 px-4 rounded-full transition-colors cursor-pointer shrink-0"
+            className="ml-auto text-xs font-bold text-white bg-emerald-500 hover:bg-emerald-600 py-2 px-4 rounded-full transition-colors cursor-pointer shrink-0"
           >
             Details
           </button>
@@ -138,8 +138,8 @@ const Projects = () => {
   return (
     <section id="projects" className="py-24 relative">
       <div className="flex items-center gap-4 mb-16">
-        <h2 className="text-4xl font-bold text-white"><span className="text-emerald-500">03.</span> Projects</h2>
-        <div className="h-[1px] bg-slate-700 flex-1 max-w-xs"></div>
+        <h2 className="text-4xl font-bold text-slate-900 dark:text-white"><span className="text-emerald-500">03.</span> Projects</h2>
+        <div className="h-[1px] bg-slate-200 dark:bg-slate-700 flex-1 max-w-xs transition-colors"></div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 perspective-[1000px]">
@@ -155,7 +155,7 @@ const Projects = () => {
               initial={{ opacity: 0 }} 
               animate={{ opacity: 1 }} 
               exit={{ opacity: 0 }} 
-              className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm"
+              className="absolute inset-0 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-sm transition-colors"
               onClick={() => setSelectedProject(null)}
             ></motion.div>
             
@@ -163,40 +163,40 @@ const Projects = () => {
               initial={{ opacity: 0, scale: 0.95, y: 20 }} 
               animate={{ opacity: 1, scale: 1, y: 0 }} 
               exit={{ opacity: 0, scale: 0.95, y: 20 }} 
-              className="relative w-full max-w-2xl bg-slate-900 border border-emerald-500/30 rounded-2xl shadow-2xl overflow-hidden z-[101] max-h-[90vh] overflow-y-auto"
+              className="relative w-full max-w-2xl bg-white dark:bg-slate-900 border border-emerald-500/30 rounded-2xl shadow-2xl overflow-hidden z-[101] max-h-[90vh] overflow-y-auto transition-colors"
             >
               <div className="p-6 sm:p-8">
                 <button 
                   onClick={() => setSelectedProject(null)}
-                  className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-colors"
+                  className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
                 
-                <h3 className="text-3xl font-bold text-white mb-2 pr-8">{selectedProject.title}</h3>
+                <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-2 pr-8">{selectedProject.title}</h3>
                 
                 <div className="flex gap-4 mb-6">
-                  <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-emerald-400 hover:text-emerald-300 transition-colors">
+                  <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 transition-colors">
                     <Github className="w-4 h-4" /> GitHub
                   </a>
-                  <a href={selectedProject.live} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-emerald-400 hover:text-emerald-300 transition-colors">
+                  <a href={selectedProject.live} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 transition-colors">
                     <ExternalLink className="w-4 h-4" /> Live Demo
                   </a>
                 </div>
                 
                 <div className="mb-8">
-                  <h4 className="text-slate-300 font-semibold mb-2">Overview</h4>
-                  <p className="text-slate-400 leading-relaxed mb-6">{selectedProject.description}</p>
+                  <h4 className="text-slate-800 dark:text-slate-300 font-semibold mb-2">Overview</h4>
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">{selectedProject.description}</p>
                   
-                  <h4 className="text-slate-300 font-semibold mb-2">Detailed Description</h4>
-                  <p className="text-slate-400 leading-relaxed whitespace-pre-line">{selectedProject.detailedDescription}</p>
+                  <h4 className="text-slate-800 dark:text-slate-300 font-semibold mb-2">Detailed Description</h4>
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed whitespace-pre-line">{selectedProject.detailedDescription}</p>
                 </div>
                 
                 <div>
-                  <h4 className="text-slate-300 font-semibold mb-3">Technologies Used</h4>
+                  <h4 className="text-slate-800 dark:text-slate-300 font-semibold mb-3">Technologies Used</h4>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.tech.map((t, i) => (
-                      <span key={i} className="text-xs font-mono text-emerald-300 bg-emerald-900/40 border border-emerald-500/20 px-3 py-1.5 rounded-full">
+                      <span key={i} className="text-xs font-mono text-emerald-700 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-500/10 border border-emerald-300 dark:border-emerald-500/30 px-3 py-1.5 rounded-full transition-colors">
                         {t}
                       </span>
                     ))}

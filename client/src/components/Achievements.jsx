@@ -12,8 +12,8 @@ const Achievements = () => {
   return (
     <section id="achievements" className="py-24 relative">
       <div className="flex items-center gap-4 mb-16">
-        <h2 className="text-4xl font-bold text-white"><span className="text-emerald-500">06.</span> Achievements</h2>
-        <div className="h-[1px] bg-slate-700 flex-1 max-w-xs"></div>
+        <h2 className="text-4xl font-bold text-slate-900 dark:text-white"><span className="text-emerald-500">06.</span> Achievements</h2>
+        <div className="h-[1px] bg-slate-200 dark:bg-slate-700 flex-1 max-w-xs transition-colors"></div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -28,20 +28,20 @@ const Achievements = () => {
           >
             {/* Background Image Layer */}
             <div className="absolute inset-0 z-0 overflow-hidden">
-               <div className="absolute inset-0 bg-slate-950/70 group-hover:bg-slate-950/50 transition-colors duration-500 z-10 pointer-events-none"></div>
-               <img src={item.bgImage} alt="" className="w-full h-full object-cover opacity-30 group-hover:opacity-50 group-hover:scale-110 transition-all duration-700 mix-blend-screen" />
+               <div className="absolute inset-0 bg-white/80 dark:bg-slate-950/80 group-hover:bg-white/60 dark:group-hover:bg-slate-950/60 transition-colors duration-500 z-10 pointer-events-none"></div>
+               <img src={item.bgImage} alt="" className="w-full h-full object-cover opacity-30 group-hover:opacity-50 group-hover:scale-110 transition-all duration-700" />
             </div>
             
             <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-full filter blur-[20px] group-hover:bg-emerald-500/20 transition-colors duration-500 z-10"></div>
             <div className="absolute bottom-0 left-0 w-32 h-32 bg-emerald-500/10 rounded-full filter blur-[40px] transition-colors duration-500 z-10"></div>
             
-            <div className="mb-6 relative z-20 p-4 bg-slate-900/50 rounded-full border border-slate-700/50 backdrop-blur-md group-hover:border-emerald-500/50 transition-colors">{item.icon}</div>
-            <h3 className="text-5xl font-orbitron font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors relative z-20">{item.count}</h3>
-            <p className="text-emerald-400 font-semibold mb-2 relative z-20 text-lg">{item.text}</p>
-            <span className="text-xs font-mono text-slate-300 bg-slate-900/80 border border-slate-700 px-3 py-1 rounded inline-block mb-4 relative z-20">{item.date}</span>
-            <p className="text-sm text-slate-300 leading-relaxed mb-6 relative z-20 flex-1">{item.description}</p>
+            <div className="mb-6 relative z-20 p-4 bg-white/50 dark:bg-slate-900/50 rounded-full border border-slate-200 dark:border-slate-800 backdrop-blur-md group-hover:border-emerald-500/50 transition-colors">{item.icon}</div>
+            <h3 className="text-5xl font-orbitron font-bold text-slate-900 dark:text-white mb-3 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors relative z-20">{item.count}</h3>
+            <p className="text-emerald-600 dark:text-emerald-400 font-semibold mb-2 relative z-20 text-lg transition-colors">{item.text}</p>
+            <span className="text-xs font-mono text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-3 py-1 rounded inline-block mb-4 relative z-20 transition-colors">{item.date}</span>
+            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6 relative z-20 flex-1 transition-colors">{item.description}</p>
             {item.credentialLink && (
-              <a href={item.credentialLink} target="_blank" rel="noopener noreferrer" className="mt-auto flex items-center gap-2 text-xs font-bold text-emerald-500 hover:text-emerald-400 transition-colors relative z-10">
+              <a href={item.credentialLink} target="_blank" rel="noopener noreferrer" className="mt-auto flex items-center gap-2 text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 dark:hover:text-emerald-300 transition-colors relative z-10">
                 View Credential <ExternalLink className="w-3 h-3" />
               </a>
             )}

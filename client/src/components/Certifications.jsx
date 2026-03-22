@@ -13,8 +13,8 @@ const Certifications = () => {
   return (
     <section id="certifications" className="py-24 relative">
       <div className="flex items-center gap-4 mb-16">
-        <h2 className="text-4xl font-bold text-white"><span className="text-emerald-500">05.</span> Certifications</h2>
-        <div className="h-[1px] bg-slate-700 flex-1 max-w-xs"></div>
+        <h2 className="text-4xl font-bold text-slate-900 dark:text-white"><span className="text-emerald-500">05.</span> Certifications</h2>
+        <div className="h-[1px] bg-slate-200 dark:bg-slate-700 flex-1 max-w-xs transition-colors"></div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -29,19 +29,19 @@ const Certifications = () => {
           >
             {/* Background Image Layer */}
             <div className="absolute inset-0 z-0 overflow-hidden">
-               <div className="absolute inset-0 bg-slate-950/80 group-hover:bg-slate-950/60 transition-colors duration-500 z-10 pointer-events-none"></div>
-               <img src={cert.bgImage} alt="" className="w-full h-full object-cover opacity-20 group-hover:opacity-40 group-hover:scale-110 transition-all duration-700 mix-blend-screen" />
+               <div className="absolute inset-0 bg-white/80 dark:bg-slate-950/80 group-hover:bg-white/60 dark:group-hover:bg-slate-950/60 transition-colors duration-500 z-10 pointer-events-none"></div>
+               <img src={cert.bgImage} alt="" className="w-full h-full object-cover opacity-20 group-hover:opacity-40 group-hover:scale-110 transition-all duration-700" />
             </div>
 
             <div className="w-16 h-16 bg-emerald-500/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all duration-300 relative z-20 border border-emerald-500/30">
-              <Award className="text-emerald-400 w-8 h-8" />
+              <Award className="text-emerald-500 w-8 h-8" />
             </div>
-            <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors relative z-20">{cert.title}</h3>
-            <p className="text-emerald-400 text-sm font-semibold mb-2 relative z-20">{cert.issuer}</p>
-            <span className="text-xs font-mono text-slate-300 bg-slate-900/80 border border-slate-700 px-3 py-1 rounded inline-block mb-4 relative z-20">{cert.date}</span>
-            <p className="text-slate-300 text-sm leading-relaxed mb-6 relative z-20 flex-1">{cert.description}</p>
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors relative z-20">{cert.title}</h3>
+            <p className="text-emerald-600 dark:text-emerald-400 text-sm font-semibold mb-2 relative z-20 transition-colors">{cert.issuer}</p>
+            <span className="text-xs font-mono text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-3 py-1 rounded inline-block mb-4 relative z-20 transition-colors">{cert.date}</span>
+            <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6 relative z-20 flex-1 transition-colors">{cert.description}</p>
             {cert.credentialLink && (
-              <a href={cert.credentialLink} target="_blank" rel="noopener noreferrer" className="mt-auto flex items-center gap-2 text-xs font-bold text-slate-950 bg-emerald-500 hover:bg-emerald-400 py-2 px-5 rounded-full transition-colors relative z-20">
+              <a href={cert.credentialLink} target="_blank" rel="noopener noreferrer" className="mt-auto flex items-center gap-2 text-xs font-bold text-white bg-emerald-500 hover:bg-emerald-600 py-2 px-5 rounded-full transition-colors relative z-20">
                 View Credential <ExternalLink className="w-3 h-3" />
               </a>
             )}
