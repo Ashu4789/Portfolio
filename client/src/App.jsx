@@ -10,11 +10,13 @@ import Achievements from './components/Achievements';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
+import ScrollProgress from './components/ScrollProgress';
 
 function App() {
   return (
     <div className="min-h-screen relative w-full overflow-x-hidden font-inter text-slate-800 dark:text-slate-200 transition-colors duration-300">
       <CustomCursor />
+      <ScrollProgress />
       
       {/* Background elements */}
       <div className="fixed inset-0 z-[-1] bg-slate-50 dark:bg-slate-950 overflow-hidden transition-colors duration-300">
