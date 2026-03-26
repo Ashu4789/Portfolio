@@ -28,13 +28,13 @@ const About = () => {
               and honing my full-stack web development skills.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-              <div className="glass-card p-4 flex flex-col items-center justify-center text-center gap-2">
-                <Code2 className="text-blue-500 w-8 h-8" />
-                <span className="text-sm font-semibold text-slate-800 dark:text-slate-300">Full Stack Dev</span>
+              <div className="glass-card p-4 flex flex-col items-center justify-center text-center gap-2 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(16,185,129,0.15)] hover:border-emerald-500/50 transition-all duration-300 group cursor-pointer">
+                <Code2 className="text-blue-500 w-8 h-8 group-hover:scale-110 group-hover:-translate-y-1 transition-transform" />
+                <span className="text-sm font-semibold text-slate-800 dark:text-slate-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">Full Stack Dev</span>
               </div>
-              <div className="glass-card p-4 flex flex-col items-center justify-center text-center gap-2">
-                <Rocket className="text-red-500 w-8 h-8" />
-                <span className="text-sm font-semibold text-slate-800 dark:text-slate-300">Problem Solver</span>
+              <div className="glass-card p-4 flex flex-col items-center justify-center text-center gap-2 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(16,185,129,0.15)] hover:border-emerald-500/50 transition-all duration-300 group cursor-pointer">
+                <Rocket className="text-red-500 w-8 h-8 group-hover:scale-110 group-hover:-translate-y-1 transition-transform" />
+                <span className="text-sm font-semibold text-slate-800 dark:text-slate-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">Problem Solver</span>
               </div>
             </div>
           </div>
@@ -54,8 +54,8 @@ const About = () => {
             </div>
             
             <div className="mt-12 text-center">
-              <a href="/Ashutosh Mohanty12307673CV2026.pdf" download="Ashutosh_Mohanty_CV.pdf" className="inline-flex items-center gap-2 px-8 py-3 bg-emerald-500 text-white rounded-full font-bold hover:bg-emerald-600 transition-colors shadow-[0_0_15px_rgba(16,185,129,0.3)]">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <a href="/Ashutosh Mohanty12307673CV2026.pdf" download="Ashutosh_Mohanty_CV.pdf" className="inline-flex items-center gap-2 px-8 py-3 bg-emerald-500 text-white rounded-full font-bold hover:bg-emerald-600 hover:scale-105 hover:shadow-[0_0_25px_rgba(16,185,129,0.5)] transition-all duration-300 group">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-y-1 group-hover:scale-110 transition-transform"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                 Download Resume
               </a>
             </div>

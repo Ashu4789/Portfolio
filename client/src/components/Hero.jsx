@@ -37,12 +37,12 @@ const Hero = () => {
         </p>
         <div className="pt-8 flex gap-4 relative z-10">
           <Magnetic>
-            <a href="#projects" className="px-8 py-3 bg-emerald-500 text-white rounded-full font-bold hover:bg-emerald-600 transition-colors shadow-[0_0_15px_rgba(16,185,129,0.3)] block">
+            <a href="#projects" className="px-8 py-3 bg-emerald-500 text-white rounded-full font-bold hover:bg-emerald-400 hover:scale-105 hover:shadow-[0_0_20px_rgba(16,185,129,0.6)] transition-all duration-300 block">
               View Work
             </a>
           </Magnetic>
           <Magnetic>
-            <a href="#contact" className="px-8 py-3 glass rounded-full text-slate-800 dark:text-white font-bold hover:bg-slate-200 dark:hover:bg-white/10 transition-colors block">
+            <a href="#contact" className="px-8 py-3 glass rounded-full text-slate-800 dark:text-white font-bold hover:bg-slate-200 dark:hover:bg-emerald-500/10 hover:border-emerald-500/50 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all duration-300 block">
               Contact Me
             </a>
           </Magnetic>

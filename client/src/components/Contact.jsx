@@ -78,21 +78,21 @@ const Contact = () => {
           </div>
 
           <div className="flex gap-4 mt-12 flex-wrap">
-            <a href="https://github.com/Ashu4789" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass flex items-center justify-center rounded-full hover:bg-emerald-500 hover:text-white dark:hover:text-white transition-all text-slate-600 dark:text-slate-300" title="GitHub">
+            <a href="https://github.com/Ashu4789" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass flex items-center justify-center rounded-full hover:bg-emerald-500 hover:text-white dark:hover:text-white transition-all duration-300 text-slate-600 dark:text-slate-300 hover:scale-110 hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(16,185,129,0.25)]" title="GitHub">
               <Github className="w-5 h-5" />
             </a>
-            <a href="https://www.linkedin.com/in/ashutoshmohanty24" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass flex items-center justify-center rounded-full hover:bg-emerald-500 hover:text-white dark:hover:text-white transition-all text-slate-600 dark:text-slate-300" title="LinkedIn">
+            <a href="https://www.linkedin.com/in/ashutoshmohanty24" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass flex items-center justify-center rounded-full hover:bg-emerald-500 hover:text-white dark:hover:text-white transition-all duration-300 text-slate-600 dark:text-slate-300 hover:scale-110 hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(16,185,129,0.25)]" title="LinkedIn">
               <Linkedin className="w-5 h-5" />
             </a>
-            <a href="https://x.com/AshutoshMo72374" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass flex items-center justify-center rounded-full hover:bg-emerald-500 hover:text-white dark:hover:text-white transition-all text-slate-600 dark:text-slate-300" title="X">
+            <a href="https://x.com/AshutoshMo72374" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass flex items-center justify-center rounded-full hover:bg-emerald-500 hover:text-white dark:hover:text-white transition-all duration-300 text-slate-600 dark:text-slate-300 hover:scale-110 hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(16,185,129,0.25)]" title="X">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
               </svg>
             </a>
-            <a href="https://www.instagram.com/ashu_4789x/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass flex items-center justify-center rounded-full hover:bg-emerald-500 hover:text-white dark:hover:text-white transition-all text-slate-600 dark:text-slate-300" title="Instagram">
+            <a href="https://www.instagram.com/ashu_4789x/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass flex items-center justify-center rounded-full hover:bg-emerald-500 hover:text-white dark:hover:text-white transition-all duration-300 text-slate-600 dark:text-slate-300 hover:scale-110 hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(16,185,129,0.25)]" title="Instagram">
               <Instagram className="w-5 h-5" />
             </a>
-            <a href="https://leetcode.com/u/Ashutosh4789/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass flex items-center justify-center rounded-full hover:bg-emerald-500 hover:text-white dark:hover:text-white transition-all text-slate-600 dark:text-slate-300" title="LeetCode">
+            <a href="https://leetcode.com/u/Ashutosh4789/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass flex items-center justify-center rounded-full hover:bg-emerald-500 hover:text-white dark:hover:text-white transition-all duration-300 text-slate-600 dark:text-slate-300 hover:scale-110 hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(16,185,129,0.25)]" title="LeetCode">
               <Code2 className="w-5 h-5" />
             </a>
           </div>
@@ -145,7 +145,7 @@ const Contact = () => {
             <button 
               type="submit" 
               disabled={isSubmitting}
-              className="w-full bg-emerald-500 hover:bg-emerald-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 mt-4"
+              className="w-full bg-emerald-500 hover:bg-emerald-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 mt-4 hover:scale-[1.02] hover:shadow-[0_10px_25px_rgba(16,185,129,0.3)]"
             >
               {isSubmitting ? 'Sending...' : 'Send Message'} 
               {!isSubmitting && <Send className="w-4 h-4" />}

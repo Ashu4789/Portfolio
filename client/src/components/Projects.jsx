@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, useMotionValue, useTransform, AnimatePresence, useSpring } from 'framer-motion';
 import { Github, ExternalLink } from 'lucide-react';
 
 const projectsData = [
@@ -49,8 +49,28 @@ const ProjectCard = ({ project, index, onOpenDetails }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   
-  const rotateX = useTransform(y, [-100, 100], [10, -10]);
-  const rotateY = useTransform(x, [-100, 100], [-10, 10]);
+  const mouseX = useSpring(x, { stiffness: 300, damping: 30 });
+  const mouseY = useSpring(y, { stiffness: 300, damping: 30 });
+
+  const rotateX = useTransform(mouseY, [-0.5, 0.5], ["10deg", "-10deg"]);
+  const rotateY = useTransform(mouseX, [-0.5, 0.5], ["-10deg", "10deg"]);
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseXPos = e.clientX - rect.left;
+    const mouseYPos = e.clientY - rect.top;
+    const xPct = (mouseXPos / width) - 0.5;
+    const yPct = (mouseYPos / height) - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
 
   return (
     <motion.div
@@ -58,12 +78,10 @@ const ProjectCard = ({ project, index, onOpenDetails }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.2 }}
-      style={{ x, y, rotateX, rotateY, zIndex: 10 }}
-      drag
-      dragConstraints={{ top: 0, right: 0, bottom: 0, left: 0 }}
-      dragElastic={0.15}
-      whileDrag={{ cursor: "grabbing" }}
-      className="glass-card flex flex-col relative overflow-hidden group min-h-[450px] p-0"
+      style={{ rotateX, rotateY, zIndex: 10, transformPerspective: 1000 }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="glass-card flex flex-col relative overflow-hidden group min-h-[450px] p-0 transform-gpu hover:shadow-[0_20px_40px_rgba(16,185,129,0.2)] transition-all duration-500 hover:-translate-y-2 border border-transparent hover:border-emerald-500/30"
     >
       <div className="relative w-full h-56 overflow-hidden shrink-0 hidden sm:block">
         <div className="absolute inset-0 bg-white/60 dark:bg-slate-900/60 group-hover:bg-white/20 dark:group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
