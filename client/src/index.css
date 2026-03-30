@@ -1,8 +1,25 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
+:root {
+  --color-primary: #10b981; /* emerald-500 default */
+}
+
 @theme {
-  --color-emerald-500: #10b981;
+  /* Override emerald with our dynamic primary color scale */
+  --color-emerald-50: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  --color-emerald-100: color-mix(in srgb, var(--color-primary) 20%, white);
+  --color-emerald-200: color-mix(in srgb, var(--color-primary) 40%, white);
+  --color-emerald-300: color-mix(in srgb, var(--color-primary) 60%, white);
+  --color-emerald-400: color-mix(in srgb, var(--color-primary) 80%, white);
+  --color-emerald-500: var(--color-primary);
+  --color-emerald-600: color-mix(in srgb, var(--color-primary) 80%, black);
+  --color-emerald-700: color-mix(in srgb, var(--color-primary) 60%, black);
+  --color-emerald-800: color-mix(in srgb, var(--color-primary) 40%, black);
+  --color-emerald-900: color-mix(in srgb, var(--color-primary) 20%, black);
+  --color-emerald-950: color-mix(in srgb, var(--color-primary) 10%, black);
+  
+  --color-primary: var(--color-primary);
   --color-blue-900: #1e3a8a;
   --color-red-500: #ef4444;
   --font-orbitron: 'Orbitron', sans-serif;

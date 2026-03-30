@@ -11,11 +11,15 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
 import ScrollProgress from './components/ScrollProgress';
+import SettingsPanel from './components/SettingsPanel';
+import Chatbot from './components/Chatbot';
 
 function App() {
   return (
     <div className="min-h-screen relative w-full overflow-x-hidden font-inter text-slate-800 dark:text-slate-200 transition-colors duration-300">
       <CustomCursor />
+      <SettingsPanel />
+      <Chatbot />
       <ScrollProgress />
       
       {/* Background elements */}
