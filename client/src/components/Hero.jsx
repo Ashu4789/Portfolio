@@ -3,16 +3,18 @@ import { motion } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
 import Magnetic from './Magnetic';
 import ParticleBackground from './ParticleBackground';
+import FloatingShape from './FloatingShape';
 
 const Hero = () => {
   return (
     <section id="hero" className="min-h-screen flex flex-col justify-center relative pb-20 pt-20">
       <ParticleBackground />
+      <FloatingShape />
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="space-y-6 max-w-3xl"
+        className="space-y-6 max-w-3xl relative z-10 pointer-events-none"
       >
         <p className="text-emerald-600 font-medium tracking-wide">Hello, I'm</p>
         <h1 className="text-5xl md:text-7xl font-bold leading-tight text-slate-900 dark:text-white">
@@ -35,7 +37,7 @@ const Hero = () => {
           Computer Science Engineering student focused on building impactful, 
           scalable solutions. Specialized in full-stack web development.
         </p>
-        <div className="pt-8 flex gap-4 relative z-10">
+        <div className="pt-8 flex gap-4 relative z-10 pointer-events-auto">
           <Magnetic>
             <a href="#projects" className="px-8 py-3 bg-emerald-500 text-white rounded-full font-bold hover:bg-emerald-400 hover:scale-105 hover:shadow-[0_0_20px_rgba(16,185,129,0.6)] transition-all duration-300 block">
               View Work
