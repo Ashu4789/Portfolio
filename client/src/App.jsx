@@ -6,7 +6,7 @@ import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
-import ScrollProgress from './components/ScrollProgress';
+import PulleyScroll from './components/PulleyScroll';
 import SettingsPanel from './components/SettingsPanel';
 import Chatbot from './components/Chatbot';
 
@@ -40,7 +40,7 @@ function App() {
           <CustomCursor />
           <SettingsPanel />
           <Chatbot />
-          <ScrollProgress />
+          <PulleyScroll />
           
           {/* Background elements */}
           <div className="fixed inset-0 z-[-1] bg-slate-50 dark:bg-slate-950 overflow-hidden transition-colors duration-300">
