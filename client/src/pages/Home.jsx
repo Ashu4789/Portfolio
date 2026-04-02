@@ -9,6 +9,7 @@ import Achievements from '../components/Achievements';
 import Contact from '../components/Contact';
 import GithubStats from '../components/GithubStats';
 import Testimonials from '../components/Testimonials';
+import LanguageProficiency from '../components/LanguageProficiency';
 import { motion } from 'framer-motion';
 
 const Home = () => {
@@ -25,6 +26,7 @@ const Home = () => {
       <Skills />
       <Projects />
       <Education />
+      <LanguageProficiency />
       <Certifications />
       <Achievements />
       <GithubStats />

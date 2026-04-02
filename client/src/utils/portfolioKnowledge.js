@@ -15,6 +15,11 @@ Always respond in a friendly, professional, and concise manner. Do not invent in
 # Skills
 - Core: JavaScript, React.js, Node.js, Express.js, MongoDB (MERN Stack)
 - Frontend: HTML, CSS, Tailwind CSS v4, Framer Motion
+- Languages (Spoken/Written): 
+  - English: Full professional proficiency
+  - Hindi: Native or bilingual proficiency
+  - Odia: Native or bilingual proficiency
+  - Japanese: Elementary proficiency
 - Tools: Git, Vite, Cloudinary, Multer
 
 # Projects
