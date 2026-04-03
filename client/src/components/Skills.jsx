@@ -1,7 +1,9 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { SiC, SiCplusplus, SiJavascript, SiPhp, SiPython, SiReact, SiNodedotjs, SiExpress, SiTailwindcss, SiMysql, SiPostgresql, SiMongodb, SiGit, SiDocker } from 'react-icons/si';
 import { FaJava, FaLinux, FaTools, FaBrain, FaUsers, FaHandshake } from 'react-icons/fa';
+import { BoxSelect, Stars, Minimize2 } from 'lucide-react';
+import SkillsGalaxy from './SkillsGalaxy';
 
 const skillsData = [
   { category: "Languages", items: [
@@ -39,17 +41,41 @@ const skillsData = [
 ];
 
 const Skills = () => {
+  const [show3D, setShow3D] = useState(false);
+
   return (
     <section id="skills" className="py-24 relative">
+      <AnimatePresence>
+        {show3D && (
+          <SkillsGalaxy skills={skillsData} onClose={() => setShow3D(false)} />
+        )}
+      </AnimatePresence>
+
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <div className="flex items-center gap-4 mb-12">
-          <h2 className="text-4xl font-bold text-slate-900 dark:text-white"><span className="text-emerald-500">02.</span> My Skills</h2>
-          <div className="h-[1px] bg-slate-200 dark:bg-slate-700 flex-1 max-w-xs"></div>
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+          <div className="flex items-center gap-4 flex-1">
+            <h2 className="text-4xl font-bold text-slate-900 dark:text-white whitespace-nowrap">
+              <span className="text-emerald-500">02.</span> My Skills
+            </h2>
+            <div className="h-[1px] bg-slate-200 dark:bg-slate-700 flex-1 max-w-xs"></div>
+          </div>
+
+          <motion.button
+            whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(16,185,129,0.3)" }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setShow3D(true)}
+            className="flex items-center gap-3 px-6 py-3 bg-emerald-500 text-white rounded-full font-bold shadow-lg transition-all duration-300 group overflow-hidden relative"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+            <Stars className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+            <span className="relative z-10">ENTER 3D SKILLS GALAXY</span>
+            <BoxSelect className="w-4 h-4 ml-1 opacity-50 group-hover:opacity-100 group-hover:animate-pulse" />
+          </motion.button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -62,7 +88,6 @@ const Skills = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="glass-card p-6 border-t-4 border-t-emerald-500 hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(16,185,129,0.15)] hover:border-emerald-500/50 transition-all duration-500 group relative overflow-hidden"
             >
-              {/* Subtle radial glow on hover */}
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(16,185,129,0.1),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
               <h3 className="text-xl font-orbitron font-bold text-slate-900 dark:text-slate-200 mb-6 text-center relative z-10">{skillGroup.category}</h3>

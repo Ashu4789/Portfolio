@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { AnimatePresence } from 'framer-motion';
@@ -9,6 +9,9 @@ import CustomCursor from './components/CustomCursor';
 import PulleyScroll from './components/PulleyScroll';
 import SettingsPanel from './components/SettingsPanel';
 import Chatbot from './components/Chatbot';
+import PerformanceHUD from './components/PerformanceHUD';
+import TerminalOverlay from './components/TerminalOverlay';
+import { useTheme } from './context/ThemeContext';
 
 import Home from './pages/Home';
 import Blog from './pages/Blog';
@@ -32,6 +35,35 @@ const AnimatedRoutes = () => {
 
 function App() {
   useKonamiCode();
+  const { toggleTerminal } = useTheme();
+
+  // Keyboard listeners for shortcuts
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      // Toggle Terminal with Backtick (`)
+      if (e.key === '`') {
+        e.preventDefault();
+        toggleTerminal();
+      }
+      
+      // ALT+T shortcut as well
+      if (e.altKey && e.key === 't') {
+        e.preventDefault();
+        toggleTerminal();
+      }
+
+      // Close on Escape
+      if (e.key === 'Escape') {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('terminal') === 'true') {
+           // This will be handled inside Terminal component
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [toggleTerminal]);
 
   return (
     <HelmetProvider>
@@ -41,6 +73,8 @@ function App() {
           <SettingsPanel />
           <Chatbot />
           <PulleyScroll />
+          <PerformanceHUD />
+          <TerminalOverlay />
           
           {/* Background elements */}
           <div className="fixed inset-0 z-[-1] bg-slate-50 dark:bg-slate-950 overflow-hidden transition-colors duration-300">
