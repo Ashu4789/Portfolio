@@ -1,93 +1,104 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
-import { BookOpen, Calendar, ArrowRight } from 'lucide-react';
-
-const blogPosts = [
-  {
-    id: 1,
-    title: "Mastering React Component Patterns",
-    excerpt: "Explore advanced React patterns like compound components, render props, and custom hooks to build scalable applications.",
-    date: "March 15, 2026",
-    category: "React",
-    readTime: "5 min read"
-  },
-  {
-    id: 2,
-    title: "The Ultimate Guide to Modern CSS",
-    excerpt: "Deep dive into CSS Grid, Subgrid, CSS variables, and modern responsive design techniques without media query spaghetti.",
-    date: "February 28, 2026",
-    category: "CSS",
-    readTime: "8 min read"
-  },
-  {
-    id: 3,
-    title: "Building AI-Powered Chatbots",
-    excerpt: "How I integrated the Gemini API into my portfolio to create an intelligent assistant that understands my resume.",
-    date: "February 10, 2026",
-    category: "AI",
-    readTime: "6 min read"
-  }
-];
+import { BookOpen, Sparkles, Clock, Rocket } from 'lucide-react';
 
 const Blog = () => {
   return (
     <>
       <SEO 
         title="Blog" 
-        description="Read my latest articles, tutorials, and snippets on web development, AI, and software engineering."
+        description="Coming Soon - Read my latest articles, tutorials, and snippets on web development, AI, and software engineering."
       />
       <motion.main 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
         transition={{ duration: 0.5 }}
-        className="px-6 md:px-12 lg:px-24 mx-auto max-w-4xl py-24 min-h-[80vh]"
+        className="px-6 md:px-12 lg:px-24 mx-auto max-w-4xl py-24 min-h-[85vh] flex flex-col items-center justify-center text-center"
       >
-        <div className="flex items-center gap-4 mb-16">
-          <BookOpen className="w-10 h-10 text-emerald-500" />
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white">Blog & Snippets</h1>
-        </div>
-        
-        <p className="text-slate-600 dark:text-slate-400 text-lg mb-12">
-          I write about web development, UI/UX design, and my experiences building software. Here are some of my recent thoughts.
-        </p>
+        <motion.div 
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ 
+            type: "spring",
+            stiffness: 100,
+            damping: 15,
+            delay: 0.2 
+          }}
+          className="relative mb-12"
+        >
+          <div className="absolute inset-0 bg-emerald-500/20 blur-3xl rounded-full scale-150 animate-pulse"></div>
+          <div className="relative glass-card p-8 rounded-full border border-emerald-500/30">
+            <BookOpen className="w-16 h-16 text-emerald-500" />
+          </div>
+          
+          <motion.div
+            animate={{ 
+              rotate: [0, 10, -10, 0],
+              y: [0, -5, 5, 0]
+            }}
+            transition={{ 
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="absolute -top-4 -right-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 p-3 rounded-2xl shadow-xl border border-slate-700 dark:border-slate-200"
+          >
+            <Sparkles className="w-5 h-5 text-yellow-400" />
+          </motion.div>
+        </motion.div>
 
-        <div className="grid gap-8">
-          {blogPosts.map((post, index) => (
-            <motion.article 
-              key={post.id}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="glass-card group p-8 rounded-2xl hover:-translate-y-1 transition-all duration-300 border border-slate-200 dark:border-slate-800 hover:border-emerald-500/50 cursor-pointer relative overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/0 via-emerald-500/0 to-emerald-500/5 dark:to-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              <div className="flex flex-wrap items-center gap-4 mb-4 text-xs font-mono text-slate-500 dark:text-slate-400 relative z-10">
-                <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
-                  <Calendar className="w-3 h-3" /> {post.date}
-                </span>
-                <span>•</span>
-                <span className="bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">{post.category}</span>
-                <span>•</span>
-                <span>{post.readTime}</span>
-              </div>
-              
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-emerald-500 transition-colors relative z-10">
-                {post.title}
-              </h2>
-              
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6 relative z-10">
-                {post.excerpt}
-              </p>
-              
-              <div className="flex items-center text-emerald-600 dark:text-emerald-400 font-semibold text-sm group-hover:gap-2 transition-all relative z-10">
-                Read Article <ArrowRight className="w-4 h-4 ml-1" />
-              </div>
-            </motion.article>
-          ))}
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+        >
+          <h1 className="text-5xl md:text-6xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">
+            Blog & <span className="bg-gradient-to-r from-emerald-500 to-teal-400 bg-clip-text text-transparent">Insights</span>
+          </h1>
+          
+          <p className="text-slate-600 dark:text-slate-400 text-xl max-w-2xl mx-auto leading-relaxed mb-12">
+            I'm currently crafting high-quality content about web development, AI integration, and software engineering. Something special is in the works!
+          </p>
+        </motion.div>
+
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-2xl"
+        >
+          <div className="glass-card p-6 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center gap-4 text-left">
+            <div className="bg-emerald-500/10 p-3 rounded-xl">
+              <Clock className="w-6 h-6 text-emerald-500" />
+            </div>
+            <div>
+              <h3 className="font-bold text-slate-900 dark:text-white">Dropping Soon</h3>
+              <p className="text-sm text-slate-500 dark:text-slate-400">Preparation in progress</p>
+            </div>
+          </div>
+
+          <div className="glass-card p-6 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center gap-4 text-left">
+            <div className="bg-emerald-500/10 p-3 rounded-xl">
+              <Rocket className="w-6 h-6 text-emerald-500" />
+            </div>
+            <div>
+              <h3 className="font-bold text-slate-900 dark:text-white">Tech Deep Dives</h3>
+              <p className="text-sm text-slate-500 dark:text-slate-400">Tutorials & Case studies</p>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+          className="mt-16 inline-flex items-center gap-2 px-6 py-2 rounded-full border border-emerald-500/20 bg-emerald-500/5 text-emerald-600 dark:text-emerald-400 text-sm font-medium animate-pulse"
+        >
+          <span className="w-2 h-2 bg-emerald-500 rounded-full"></span>
+          New articles coming this month
+        </motion.div>
       </motion.main>
     </>
   );
