@@ -97,7 +97,7 @@ const Blog = () => {
           className="mt-16 inline-flex items-center gap-2 px-6 py-2 rounded-full border border-emerald-500/20 bg-emerald-500/5 text-emerald-600 dark:text-emerald-400 text-sm font-medium animate-pulse"
         >
           <span className="w-2 h-2 bg-emerald-500 rounded-full"></span>
-          New articles coming this month
+          New articles coming soon
         </motion.div>
       </motion.main>
     </>
