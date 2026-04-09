@@ -23,7 +23,7 @@ const Hero = () => {
         <h2 className="text-3xl md:text-5xl text-slate-600 dark:text-slate-400 font-bold tracking-tight h-[60px] md:h-[80px]">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-emerald-700">
             <Typewriter
-              words={['Software Product Developer', 'Full-Stack Developer', 'Problem Solver', 'Tech Enthusiast']}
+              words={['Computer Science Student', 'Full Stack Developer', 'Software Engineer', 'AI Enthusiast']}
               loop={true}
               cursor
               cursorStyle='_'
@@ -34,8 +34,8 @@ const Hero = () => {
           </span>
         </h2>
         <p className="text-lg text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed mt-4">
-          Computer Science Engineering student focused on building impactful, 
-          scalable solutions. Specialized in full-stack web development.
+          Computer Science Engineering undergraduate focused on building scalable, 
+          real-world products. Specialized in modern full-stack development and AI integration.
         </p>
         <div className="pt-8 flex gap-4 relative z-10 pointer-events-auto">
           <Magnetic>

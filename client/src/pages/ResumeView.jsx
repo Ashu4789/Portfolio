@@ -44,6 +44,9 @@ const ResumeView = () => {
               <span>•</span>
               <span>+91-9348825087</span>
             </div>
+            <p className="mt-6 text-slate-700 dark:text-slate-300 italic">
+              Computer Science undergraduate and Full Stack Developer with hands-on experience building scalable web applications.
+            </p>
           </header>
 
           {/* Core Sections Grid */}
@@ -58,11 +61,29 @@ const ResumeView = () => {
               <div className="space-y-6">
                 <div>
                   <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
-                    <h4 className="text-xl font-bold text-slate-800 dark:text-slate-200">Bachelor of Technology - Computer Science</h4>
-                    <span className="text-emerald-600 dark:text-emerald-400 font-mono text-sm whitespace-nowrap">Aug 2023 – July 2027</span>
+                    <h4 className="text-xl font-bold text-slate-800 dark:text-slate-200">B.Tech in Computer Science and Engineering</h4>
+                    <span className="text-emerald-600 dark:text-emerald-400 font-mono text-sm whitespace-nowrap">2023 – 2027</span>
                   </div>
-                  <p className="text-slate-600 dark:text-slate-400">Lovely Professional University, Phagwara, Punjab</p>
-                  <p className="font-semibold text-emerald-700 dark:text-emerald-300 mt-1">CGPA: 8.02</p>
+                  <p className="text-slate-600 dark:text-slate-400">Lovely Professional University, Punjab</p>
+                  <p className="font-semibold text-emerald-700 dark:text-emerald-300 mt-1">CGPA: 8.17</p>
+                </div>
+
+                <div>
+                  <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
+                    <h4 className="text-xl font-bold text-slate-800 dark:text-slate-200">Intermediate (Class XII)</h4>
+                    <span className="text-emerald-600 dark:text-emerald-400 font-mono text-sm whitespace-nowrap">2021 – 2023</span>
+                  </div>
+                  <p className="text-slate-600 dark:text-slate-400">Prabhujee English Medium School, Bhubaneswar</p>
+                  <p className="font-semibold text-emerald-700 dark:text-emerald-300 mt-1">Score: 82.8%</p>
+                </div>
+
+                <div>
+                  <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
+                    <h4 className="text-xl font-bold text-slate-800 dark:text-slate-200">Matriculation (Class X)</h4>
+                    <span className="text-emerald-600 dark:text-emerald-400 font-mono text-sm whitespace-nowrap">2021</span>
+                  </div>
+                  <p className="text-slate-600 dark:text-slate-400">Prabhujee English Medium School, Bhubaneswar</p>
+                  <p className="font-semibold text-emerald-700 dark:text-emerald-300 mt-1">Score: 97.4%</p>
                 </div>
               </div>
             </section>
@@ -73,18 +94,22 @@ const ResumeView = () => {
                 <span className="w-8 h-1 bg-emerald-500 inline-block"></span> Technical Skills
               </h3>
               
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div className="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800">
                   <h4 className="font-bold mb-2">Languages</h4>
-                  <p className="text-slate-600 dark:text-slate-400">C, C++, Java, JavaScript, PHP, Python</p>
+                  <p className="text-slate-600 dark:text-slate-400">C, C++, JavaScript, Python, Java, PHP</p>
                 </div>
                 <div className="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800">
-                  <h4 className="font-bold mb-2">Frameworks</h4>
-                  <p className="text-slate-600 dark:text-slate-400">ReactJS, NodeJS, ExpressJS, Tailwind CSS</p>
+                  <h4 className="font-bold mb-2">Development</h4>
+                  <p className="text-slate-600 dark:text-slate-400">React.js, Node.js, Express.js, HTML5, CSS3, Tailwind CSS</p>
                 </div>
                 <div className="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800">
-                  <h4 className="font-bold mb-2">Tools & Platforms</h4>
-                  <p className="text-slate-600 dark:text-slate-400">MySQL, PostgreSQL, MongoDB, Git, GitHub, Linux, Docker, NextJS</p>
+                  <h4 className="font-bold mb-2">Databases</h4>
+                  <p className="text-slate-600 dark:text-slate-400">MongoDB, MySQL, PostgreSQL</p>
+                </div>
+                <div className="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800 col-span-full">
+                  <h4 className="font-bold mb-2">DevOps & Tools</h4>
+                  <p className="text-slate-600 dark:text-slate-400">Git, GitHub, Docker (Basic), Linux, CI/CD, AWS EC2, Vercel</p>
                 </div>
               </div>
             </section>
@@ -102,21 +127,70 @@ const ResumeView = () => {
                     <span className="text-emerald-600 dark:text-emerald-400 font-mono text-sm border border-emerald-500/30 px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-900/20">Jan 2026</span>
                   </div>
                   <ul className="list-none space-y-2 text-slate-600 dark:text-slate-400 ml-1">
-                    <li className="flex gap-2"><CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"/> A Dashboard unifying fragmented national accounts datasets.</li>
-                    <li className="flex gap-2"><CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"/> Features Interactive time series charts, sector drill downs, and automated data refresh.</li>
-                    <li className="flex gap-2"><CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"/> Tech: NodeJS, ReactJS, ExpressJS, MongoDB, Tailwnd CSS.</li>
+                    <li className="flex gap-2"><CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"/> Developed a data analytics dashboard consolidating fragmented macroeconomic datasets.</li>
+                    <li className="flex gap-2"><CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"/> Features: Time-series visualizations, sector drill-down, automated ETL pipeline.</li>
+                    <li className="flex gap-2"><CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"/> Tech: React.js, Node.js, Express.js, MongoDB, Google Cloud API.</li>
                   </ul>
                 </div>
                 
                 <div>
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
-                    <h4 className="text-xl font-bold text-slate-800 dark:text-slate-200">Business Travel Chat Bot</h4>
+                    <h4 className="text-xl font-bold text-slate-800 dark:text-slate-200">AI Business Travel Chatbot</h4>
                     <span className="text-emerald-600 dark:text-emerald-400 font-mono text-sm border border-emerald-500/30 px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-900/20">Apr 2025</span>
                   </div>
                   <ul className="list-none space-y-2 text-slate-600 dark:text-slate-400 ml-1">
-                    <li className="flex gap-2"><CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"/> AI-powered travel planning platform for hotel and flight booking.</li>
-                    <li className="flex gap-2"><CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"/> Built with Gemini API and custom interactive UI elements.</li>
+                    <li className="flex gap-2"><CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"/> AI platform assisting users with travel planning and hotel/flight recommendations.</li>
+                    <li className="flex gap-2"><CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"/> Tech: JavaScript, HTML, Tailwind CSS, Gemini API integration.</li>
                   </ul>
+                </div>
+
+                <div>
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
+                    <h4 className="text-xl font-bold text-slate-800 dark:text-slate-200">Bubble Bot Website</h4>
+                    <span className="text-emerald-600 dark:text-emerald-400 font-mono text-sm border border-emerald-500/30 px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-900/20">2025</span>
+                  </div>
+                  <ul className="list-none space-y-2 text-slate-600 dark:text-slate-400 ml-1">
+                    <li className="flex gap-2"><CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"/> Robotics project website presenting solutions through an interactive interface.</li>
+                    <li className="flex gap-2"><CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"/> Tech: React.js, Node.js, JavaScript, Tailwind CSS.</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            {/* Certifications & Training */}
+            <section>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 uppercase tracking-wider flex items-center gap-3">
+                <span className="w-8 h-1 bg-emerald-500 inline-block"></span> Certifications & Training
+              </h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-1"/>
+                  <div>
+                    <h4 className="font-bold">Cloud Computing — NPTEL</h4>
+                    <p className="text-sm text-slate-600 dark:text-slate-400">IIT Kharagpur | April 2025</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-1"/>
+                  <div>
+                    <h4 className="font-bold">DSA with C++</h4>
+                    <p className="text-sm text-slate-600 dark:text-slate-400">CipherSchools (70 Hours) | July 2025</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-1"/>
+                  <div>
+                    <h4 className="font-bold">Logic Building & DSA</h4>
+                    <p className="text-sm text-slate-600 dark:text-slate-400">LPU CPE | July 2024</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-1"/>
+                  <div>
+                    <h4 className="font-bold">Python for ML/AI</h4>
+                    <p className="text-sm text-slate-600 dark:text-slate-400">CSEPathshala | March 2024</p>
+                  </div>
                 </div>
               </div>
             </section>

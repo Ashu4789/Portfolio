@@ -19,13 +19,14 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
             <p>
-              Hello! I'm <span className="text-emerald-600 dark:text-emerald-400 font-medium">Ashutosh Mohanty</span>, a Computer Science Engineering student from 
-              Lovely Professional University (2023–2027). I enjoy creating things that live on the internet and love exploring new technologies.
+              Hello! I'm <span className="text-emerald-600 dark:text-emerald-400 font-medium">Ashutosh Mohanty</span>, 
+              a Computer Science undergraduate and Full Stack Developer. I have hands-on experience building scalable web applications 
+              using React, Node.js, Express, and modern databases.
             </p>
             <p>
-              My interest in software development sparked when I realized the power of building scalable solutions
-              that could positively impact users. Fast forward to today, I'm constantly learning, problem-solving, 
-              and honing my full-stack web development skills.
+              I specialize in designing responsive user interfaces, developing RESTful APIs, integrating AI services, 
+              and deploying applications on cloud platforms. I'm passionate about building real-world software products 
+              and solving complex engineering challenges.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
               <div className="glass-card p-4 flex flex-col items-center justify-center text-center gap-2 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(16,185,129,0.15)] hover:border-emerald-500/50 transition-all duration-300 group cursor-pointer">

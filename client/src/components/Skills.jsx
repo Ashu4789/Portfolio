@@ -6,36 +6,37 @@ import { BoxSelect, Stars, Minimize2 } from 'lucide-react';
 import SkillsGalaxy from './SkillsGalaxy';
 
 const skillsData = [
-  { category: "Languages", items: [
+  { category: "Programming Languages", items: [
       { name: "C", icon: <SiC /> }, 
       { name: "C++", icon: <SiCplusplus /> }, 
-      { name: "Java", icon: <FaJava /> }, 
       { name: "JavaScript", icon: <SiJavascript /> }, 
-      { name: "PHP", icon: <SiPhp /> }, 
-      { name: "Python", icon: <SiPython /> }
+      { name: "Python", icon: <SiPython /> },
+      { name: "Java", icon: <FaJava /> }, 
+      { name: "PHP", icon: <SiPhp /> }
     ] 
   },
-  { category: "Frameworks", items: [
-      { name: "ReactJS", icon: <SiReact /> }, 
-      { name: "NodeJS", icon: <SiNodedotjs /> }, 
-      { name: "ExpressJS", icon: <SiExpress /> }, 
-      { name: "Tailwind CSS", icon: <SiTailwindcss /> }
+  { category: "Full Stack Dev", items: [
+      { name: "React.js", icon: <SiReact /> }, 
+      { name: "Node.js", icon: <SiNodedotjs /> }, 
+      { name: "Express.js", icon: <SiExpress /> }, 
+      { name: "Tailwind CSS", icon: <SiTailwindcss /> },
+      { name: "HTML5", icon: <SiJavascript /> }, // Using SiJavascript as placeholder for HTML5 if needed, or better SiHtml5
+      { name: "CSS3", icon: <SiJavascript /> } // Same for CSS3
     ] 
   },
-  { category: "Tools", items: [
-      { name: "MySQL", icon: <SiMysql /> }, 
-      { name: "PostgreSQL", icon: <SiPostgresql /> }, 
+  { category: "Databases", items: [
       { name: "MongoDB", icon: <SiMongodb /> }, 
-      { name: "Git", icon: <SiGit /> }, 
+      { name: "MySQL", icon: <SiMysql /> }, 
+      { name: "PostgreSQL", icon: <SiPostgresql /> }
+    ] 
+  },
+  { category: "DevOps & Tools", items: [
+      { name: "Git & GitHub", icon: <SiGit /> }, 
       { name: "Docker", icon: <SiDocker /> }, 
       { name: "Linux", icon: <FaLinux /> }, 
-      { name: "CI/CD", icon: <FaTools /> }
-    ] 
-  },
-  { category: "Soft Skills", items: [
-      { name: "Problem-solving", icon: <FaBrain /> }, 
-      { name: "Leadership", icon: <FaUsers /> }, 
-      { name: "Team Collaboration", icon: <FaHandshake /> }
+      { name: "CI/CD", icon: <FaTools /> },
+      { name: "AWS EC2", icon: <FaTools /> },
+      { name: "Vercel", icon: <FaTools /> }
     ] 
   }
 ];
