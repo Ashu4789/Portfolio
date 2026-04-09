@@ -1,58 +1,162 @@
-Ashutosh Mohanty 
-LinkedIn:  linkedin.com/in/ashutoshmohanty24                                                        Email:  ashutoshmohanty2004@gmail.com 
-GitHub:    github.com/Ashu4789      Mobile: 91-9348825087 
- 
-SKILLS 
-• Languages: C, C++, Java, JavaScript, PHP, Python 
-• Frameworks: ReactJS, NodeJS, ExpressJS, Tailwind CSS 
-• Tools/Platforms: MySQL, PostgreSQL, MongoDB, Git, GitHub, Linux, windows, CI/CD, Docker 
-• Soft Skills: Problem-Solving, Team Collaboration, Adaptability, Leadership, Creative Thinking 
- 
-PROJECTS 
-• National Accounts Dashboard | GitHub                                                                                                  January 2026 
-• A Dashboard that unifies fragmented national accounts and macroeconomic datasets  
-into a single dashboard for faster, accurate policy and economic analysis. 
-• Some of its features include Interactive time series charts, sector/region drill downs, 
-exportable reports, and automated data refresh. 
-• The project contains automated ETL with incremental caching and on demand  
-aggregations powering real time dynamic visualizations. 
-Tech: NodeJS, ReactJS, ExpressJS, MongoDB, Google Cloud API, Tailwind CSS, Vercel 
- 
-• Tour Guide Management Website | GitHub                                                                                                  May 2025 
-• A tour management platform with booking, guide assignment, and custom trip planning.  
-• Has an admin dashboard for efficient CRUD operations and package management. 
-• Contains customer feedback, ratings, and a guide-booking ecosystem for enhanced usability. 
- Tech: HTML, CSS, JavaScript, PHP, MySQL, Tailwind CSS                          
-• Business Travel Chat Bot | GitHub                                                                                                               April 2025  
-• An AI-powered travel planning platform for hotel and flight booking and itineraries 
-• Contains deal search and chat-based interactions for seamless user assistance. 
-• A futuristic UI with custom interactive elements for enhanced engagement. 
-Tech: HTML, JavaScript, Gemini API, Tailwind CSS                         
-  TRAINING 
-• Data Structures and Algorithms with CPP | CipherShools | Certificate                                                     July 2025 
-• Completion of a 70-hour structured training program in Data Structures and Algorithms 
-• Proficiency in algorithmic optimization and efficient solution design 
-• Exposure to real-world implementation of DSA concepts through practical scenarios  
-CERTIFICATES 
-• Cloud Computing | NPTEL | Certificate                                                   April 2025 
-• Logic Building, Programming and Data Structures | LPU CPE | Certificate                                                      July 2024 
-• Unrevealing Basic Python Towards ML/AI | CSEPATHSHALA | Certificate                                March 2024 
-ACHIEVEMENTS 
-• Solved 200+ DSA Problems across platforms                                 December 2025 
- Solved 100+ problems on LeetCode with 200+ submissions and 50+ on other platforms. 
-held at LPU. 
-• Got Felicitated for Contributing at Vikas Mela 2025 by Govt. of Odisha | Certificate                             June 2025 
-Represented the planning and convergence department of Odisha government in SDG IEC kiosk  
-• Attained 1st Position in Zerodha Varsity Quiz | Certificate                                                                   January 2025 
-Secured 1st position and received cash prize in university level Zerodha Varsity Quiz  
-EDUCATION 
-Lovely Professional University                                                                                                               Phagwara, Punjab 
-Bachelor of Technology - Computer Science and Engineering;  CGPA: 8.02               August 2023 – July 2027  
-Prabhujee English Medium School      Bhubaneswar, Odisha 
-Intermediate;  Percentage: 82.8%                                                                                   April 2020 - March 2022 
-Prabhujee English Medium School Bhubaneswar, Odisha 
-Matriculation;  Percentage: 97.4%                                                                                   April 2018 - March 2020 
- 
-• 
-• 
-• 
+Ashutosh Mohanty
+
+📍 Punjab, India
+📧 ashutoshmohanty2004@gmail.com
+ | 📞 +91 9348825087
+🔗 GitHub: github.com/Ashu4789
+🔗 LinkedIn: linkedin.com/in/ashutoshmohanty24
+
+Professional Summary
+
+Computer Science undergraduate and Full Stack Developer with hands-on experience building scalable web applications using React, Node.js, Express, and modern databases. Experienced in designing responsive user interfaces, developing RESTful APIs, integrating AI services, and deploying applications on cloud platforms. Passionate about building real-world software products and solving complex engineering challenges.
+
+Technical Skills
+Programming Languages
+
+C, C++, JavaScript, Python, Java, PHP
+
+Frontend Development
+
+React.js
+HTML5
+CSS3
+Tailwind CSS
+Responsive UI/UX Design
+
+Backend Development
+
+Node.js
+Express.js
+REST API Development
+Server-side Application Architecture
+
+Databases
+
+MongoDB
+MySQL
+PostgreSQL
+
+DevOps & Tools
+
+Git & GitHub
+Docker (Basic)
+Linux
+CI/CD
+AWS EC2
+Vercel Deployment
+
+Projects
+National Accounts Dashboard
+
+Tech: React.js, Node.js, Express.js, MongoDB, Tailwind CSS, Google Cloud API, Vercel
+
+Developed a data analytics dashboard that consolidates fragmented macroeconomic datasets into a unified platform for analysis.
+
+Key Features:
+
+Interactive time-series visualizations for economic indicators
+Sector and region drill-down analytics
+Automated ETL pipeline with incremental caching
+Backend APIs enabling real-time data updates
+Exportable analytical reports
+Tour Guide Management System
+
+Tech: HTML, CSS, JavaScript, PHP, MySQL, Tailwind CSS
+
+Developed a tour management platform enabling travel agencies to manage tour packages, bookings, and guide assignments.
+
+Key Features:
+
+Admin dashboard for tour package CRUD operations
+Guide assignment system based on availability
+Customer feedback and rating mechanism
+Custom tour planning and booking workflow
+AI Business Travel Chatbot
+
+Tech: JavaScript, HTML, Tailwind CSS, Gemini API
+
+Developed an AI-powered chatbot platform that assists users with travel planning and recommendations.
+
+Key Features:
+
+Conversational interface for travel assistance
+AI-powered hotel and flight recommendations
+Dynamic response generation using API integration
+Futuristic UI with interactive components
+Architecture Firm Website
+
+Tech: MongoDB, Express.js, React.js, Node.js (MERN Stack)
+
+Developed a full stack architecture portfolio platform for an architecture firm to showcase projects and manage portfolio content.
+
+Key Features:
+
+Dynamic architecture project gallery with image management
+Admin dashboard for uploading and managing projects
+REST API integration connecting frontend and backend
+Fully responsive design for desktop and mobile devices
+Bubble Bot Website
+
+Tech: React.js, Node.js, JavaScript, Tailwind CSS
+
+Developed a modern robotics project website designed to present robotics solutions and project information through an interactive interface.
+
+Key Features:
+
+Interactive UI for robotics project presentation
+Responsive design with modern UI elements
+Structured content layout for technical project explanation
+Backend support for dynamic content updates
+Inter-Process Communication Debugger
+
+Tech: Python, Tkinter
+
+Built a visual debugging tool to simulate and analyze IPC mechanisms used in operating systems.
+
+Key Features:
+
+Visualization of Pipes, Message Queues, and Shared Memory
+GUI-based simulation of process communication
+Detection of synchronization issues and bottlenecks
+Educational tool for understanding OS communication models
+Training
+
+Data Structures and Algorithms with C++
+CipherSchools | July 2025
+
+Completed 70-hour structured program on core DSA concepts
+Focused on algorithm optimization and problem solving
+Implemented real-world computational scenarios
+Certifications
+
+Cloud Computing — NPTEL | April 2025
+
+Logic Building, Programming and Data Structures — LPU CPE | July 2024
+
+Basic Python Towards ML/AI — CSEPathshala | March 2024
+
+Achievements
+
+Solved 200+ Data Structures and Algorithms Problems
+
+100+ problems on LeetCode
+50+ on other competitive programming platforms
+
+1st Position — Zerodha Varsity Quiz (University Level)
+
+Felicitated at Vikas Mela 2025 — Government of Odisha
+
+Education
+
+Bachelor of Technology – Computer Science and Engineering
+Lovely Professional University, Punjab
+2023 – 2027
+CGPA: 8.17
+
+Intermediate (Class XII)
+Prabhujee English Medium School, Bhubaneswar
+82.8%
+
+Matriculation (Class X)
+Prabhujee English Medium School, Bhubaneswar
+97.4%
