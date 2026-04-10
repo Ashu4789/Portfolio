@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
+import Breadcrumbs from '../components/Breadcrumbs';
 import { Download, FileText, CheckCircle } from 'lucide-react';
 
 const ResumeView = () => {
@@ -10,6 +11,9 @@ const ResumeView = () => {
         title="Resume" 
         description="View my interactive resume, skills, experience, and download a PDF version."
       />
+      <div className="pt-24 px-6 md:px-12 lg:px-24 max-w-4xl mx-auto">
+        <Breadcrumbs />
+      </div>
       <motion.main 
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}

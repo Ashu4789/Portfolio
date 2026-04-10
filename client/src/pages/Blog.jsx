@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
+import Breadcrumbs from '../components/Breadcrumbs';
 import { BookOpen, Sparkles, Clock, Rocket } from 'lucide-react';
 
 const Blog = () => {
@@ -10,6 +11,9 @@ const Blog = () => {
         title="Blog" 
         description="Coming Soon - Read my latest articles, tutorials, and snippets on web development, AI, and software engineering."
       />
+      <div className="pt-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
+        <Breadcrumbs />
+      </div>
       <motion.main 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

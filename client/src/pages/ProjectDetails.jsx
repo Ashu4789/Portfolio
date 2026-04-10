@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Github, ExternalLink, ArrowLeft } from 'lucide-react';
 import SEO from '../components/SEO';
+import Breadcrumbs from '../components/Breadcrumbs';
 import { projectsData } from '../data/projectsData';
 
 const ProjectDetails = () => {
@@ -29,6 +30,9 @@ const ProjectDetails = () => {
         title={`${project.title} - Case Study`} 
         description={project.description}
       />
+      <div className="pt-24 px-6 md:px-12 lg:px-24 max-w-5xl mx-auto">
+        <Breadcrumbs customTitle={project.title} />
+      </div>
       <motion.main 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
