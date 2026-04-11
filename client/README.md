@@ -1,44 +1,42 @@
 # Frontend Client - Portfolio
 
-This directory contains the frontend code for the personal portfolio application. It is built using modern web development practices to ensure high performance, responsiveness, and aesthetic appeal.
+This directory contains the primary frontend code for the personal portfolio. It is built as a high-performance React application leveraging modern web APIs and advanced UI libraries.
 
-## 🚀 Tech Stack
+> [!NOTE]
+> For a full overview of the project, premium features, and detailed setup instructions, please refer to the **[Main Root README](../README.md)**.
 
-* **[React 19](https://react.dev/)**
-* **[Vite](https://vitejs.dev/)** - Lightning fast bundler
-* **[Tailwind CSS v4](https://tailwindcss.com/)** - Utility-first CSS framework
-* **[Framer Motion](https://www.framer.com/motion/)** - Animation library for React
-* **[Lucide React](https://lucide.dev/)** - Beautiful & consistent icons
+## 🚀 Tech Stack Highlights
 
-## 💻 Development Setup
+- **React 19** & **Vite 8**
+- **Tailwind CSS v4**
+- **Framer Motion** (Peak animations)
+- **Three.js** (Interactive 3D graphics)
+- **Google Gemini AI** (Intelligent chatbot)
 
-1. **Install dependencies:**
+## 💻 Local Development
+
+1. **Install Dependencies:**
    ```sh
    npm install
    ```
 
-2. **Run the development server:**
+2. **Run Development Server:**
    ```sh
    npm run dev
    ```
-   The application will be available at `http://localhost:5173`.
+   *Available at `http://localhost:5173`*
 
-3. **Build for production:**
+3. **Build for Production:**
    ```sh
    npm run build
    ```
 
-4. **Linting:**
-   ```sh
-   npm run lint
-   ```
+## 🏗️ Folder Highlights
 
-## 🏗️ Architecture Summary
+- `src/components/`: Core UI modules (Skills Galaxy, Terminal, Performance HUD, etc.)
+- `src/data/`: Centralized content management for projects and skills.
+- `src/context/`: Theme and state management logic.
+- `src/assets/`: Media and static resources.
 
-The `src` folder employs a clean, component-centric architecture:
-- `components/`: Contains all UI building blocks (`Hero.jsx`, `Projects.jsx`, etc.).
-- `context/`: For global state management (e.g., Theme Context).
-- `assets/`: For local static files (images, SVGs).
-- `pages/`: Used alongside routing (if extended in the future).
-
-*Note: For full-stack execution and backend setup, please refer to the `README.md` at the project root.*
+---
+*Refer to the root documentation for the complete project roadmap and feature details.*

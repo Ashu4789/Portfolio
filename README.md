@@ -1,8 +1,131 @@
 <div align="center">
   <img src="client/public/favicon.ico" alt="Logo" width="80" height="80">
-  <h3 align="center">Full-Stack Portfolio</h3>
+  <h1 align="center">Premium Personal Portfolio</h1>
   <p align="center">
-    A personal full-stack portfolio website showcasing projects, skills, education, and professional experience.
+    An immersive, high-performance personal portfolio showcasing technical expertise with a futuristic, cyberpunk aesthetic.
+    <br />
+    <a href="https://github.com/Ashu4789/Portfolio"><strong>Explore the code »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/Ashu4789/Portfolio/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/Ashu4789/Portfolio/issues">Request Feature</a>
+  </p>
+</div>
+
+---
+
+## 🚀 About The Project
+
+This is a state-of-the-art personal portfolio application designed to push the boundaries of modern web design. Built as a pure frontend application, it prioritizes visual excellence, interactive storytelling, and technical depth. It features a dark-navy aesthetic with glassmorphism, dynamic animations, and several opt-in "Premium" interactive modes.
+
+### ✨ Premium Features
+
+*   **🌌 Skills Galaxy**: A fully interactive 3D star-field visualization of technical skills built with **Three.js** and **React Three Fiber**.
+*   **💻 Hacker Terminal Mode**: A command-line interface overlay that allows visitors to explore the portfolio through terminal commands.
+*   **📊 Performance HUD**: A real-time telemetry display showing FPS, memory usage, and site metrics for a complete "Developer Experience."
+*   **🌊 Ocean Cleanup Scroll Progress**: A unique, narrative-driven horizontal progress bar featuring an autonomous cleaning boat and catchable debris.
+*   **🤖 Gemini AI Chatbot**: An intelligent assistant integrated with **Google Gemini AI** to provide instant answers about the developer.
+*   **📅 GitHub Insights**: Integrated **GitHub Calendar** and stats to showcase real-time coding activity and contribution density.
+*   **🌐 Language Proficiency**: A specialized visual component for showcasing linguistic skills and proficiency levels.
+
+---
+
+## 🛠️ Built With
+
+### Core Frontend
+*   **[React 19](https://react.dev/)** - The latest in component-based UI development.
+*   **[Vite 8](https://vitejs.dev/)** - Lightning-fast next-generation frontend tooling.
+*   **[Tailwind CSS v4](https://tailwindcss.com/)** - Utility-first CSS with the latest design tokens.
+*   **[Framer Motion](https://www.framer.com/motion/)** - High-fidelity animations and interactions.
+
+### Graphics & Interactivity
+*   **[Three.js](https://threejs.org/)** & **[@react-three/fiber](https://github.com/pmndrs/react-three-fiber)** - 3D rendering engine.
+*   **[TSParticles](https://particles.js.org/)** - Interactive particle backgrounds.
+*   **[Lucide React](https://lucide.dev/)** - Consistent, beautiful iconography.
+
+### Integrations
+*   **[Web3Forms](https://web3forms.com/)** - Seamless, serverless contact form integration.
+*   **[Google Gemini AI](https://deepmind.google/technologies/gemini/)** - Powering the intelligent chatbot experience.
+
+---
+
+## 🏁 Getting Started
+
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+
+*   Node.js (v20 or higher recommended)
+*   npm
+    ```sh
+    npm install npm@latest -g
+    ```
+
+### Installation & Setup
+
+1.  **Clone the repository**
+    ```sh
+    git clone https://github.com/Ashu4789/Portfolio.git
+    cd Portfolio
+    ```
+
+2.  **Install Dependencies**
+    ```sh
+    cd client
+    npm install
+    ```
+
+3.  **Set up Environment Variables**
+    Create a `.env` file in the `client` directory and add your keys:
+    ```env
+    VITE_WEB3FORMS_ACCESS_KEY=your_key_here
+    VITE_GOOGLE_GEMINI_API_KEY=your_key_here
+    ```
+
+4.  **Run the Application**
+    ```sh
+    npm run dev
+    ```
+    The application will be available at `http://localhost:5173`.
+
+---
+
+## 📁 Folder Structure
+
+```text
+.
+├── client/                     # Core React Application
+│   ├── public/                 # Static assets (Favicons, etc.)
+│   ├── src/
+│   │   ├── assets/             # Project-specific images and media
+│   │   ├── components/         # UI Components (SkillsGalaxy, Terminal, etc.)
+│   │   ├── data/               # Content data files (Projects, Skills)
+│   │   ├── context/            # Global state management
+│   │   ├── App.jsx             # Main Application Logic
+│   │   └── main.jsx            # Entry Point
+│   ├── package.json
+│   └── vite.config.js
+├── LICENSE
+└── README.md                   # Project Documentation
+```
+
+---
+
+## 📜 License
+
+Distributed under the ISC License. See `LICENSE` for more information.
+
+---
+
+## 📬 Contact
+
+**Ashutosh** - [GitHub Profile](https://github.com/Ashu4789)
+
+Project Link: [https://github.com/Ashu4789/Portfolio](https://github.com/Ashu4789/Portfolio)
+
+---
+*Built with ❤️ to showcase technical excellence and creative design.*
     <br />
     <a href="https://github.com/Ashu4789/Portfolio"><strong>Explore the docs »</strong></a>
     <br />
