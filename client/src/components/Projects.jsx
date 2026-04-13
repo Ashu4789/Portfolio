@@ -1,101 +1,146 @@
-import React from 'react';
-import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
-import { Github, ExternalLink } from 'lucide-react';
+import React, { useRef } from 'react';
+import { motion, useMotionValue, useTransform, useSpring, AnimatePresence } from 'framer-motion';
+import { Github, ExternalLink, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { projectsData } from '../data/projectsData';
+import Magnetic from './Magnetic';
 
 const ProjectCard = ({ project, index }) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
+  const cardRef = useRef(null);
   
-  const mouseX = useSpring(x, { stiffness: 300, damping: 30 });
-  const mouseY = useSpring(y, { stiffness: 300, damping: 30 });
+  // Mouse position for spotlight and parallax
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
 
-  const rotateX = useTransform(mouseY, [-0.5, 0.5], ["10deg", "-10deg"]);
-  const rotateY = useTransform(mouseX, [-0.5, 0.5], ["-10deg", "10deg"]);
+  // Smooth springs for animations
+  const springX = useSpring(mouseX, { stiffness: 100, damping: 30 });
+  const springY = useSpring(mouseY, { stiffness: 100, damping: 30 });
+
+  // Parallax for image: subtle pan based on mouse position
+  const imagePanX = useTransform(springX, (val) => (val / 100) * -1); // Subtle movement
+  const imagePanY = useTransform(springY, (val) => (val / 100) * -1);
 
   const handleMouseMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseXPos = e.clientX - rect.left;
-    const mouseYPos = e.clientY - rect.top;
-    const xPct = (mouseXPos / width) - 0.5;
-    const yPct = (mouseYPos / height) - 0.5;
-    x.set(xPct);
-    y.set(yPct);
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    
+    // Relative position from center (0 to 1)
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    mouseX.set(x - rect.width / 2);
+    mouseY.set(y - rect.height / 2);
   };
 
   const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
+    mouseX.set(0);
+    mouseY.set(0);
   };
+
+  const spotlightBackground = useTransform(
+    [springX, springY],
+    ([x, y]) => {
+      // Offset back to top-left for gradient centering
+      const centerX = x + (cardRef.current?.getBoundingClientRect().width / 2 || 0);
+      const centerY = y + (cardRef.current?.getBoundingClientRect().height / 2 || 0);
+      return `radial-gradient(650px circle at ${centerX}px ${centerY}px, rgba(16, 185, 129, 0.12), transparent 80%)`;
+    }
+  );
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      ref={cardRef}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.2 }}
-      style={{ rotateX, rotateY, zIndex: 10, transformPerspective: 1000 }}
+      whileHover={{ y: -10, scale: 1.01 }}
+      transition={{ duration: 0.8, delay: index * 0.1, ease: [0.23, 1, 0.32, 1] }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="glass-card flex flex-col relative overflow-hidden group min-h-[450px] p-0 transform-gpu hover:shadow-[0_20px_40px_rgba(16,185,129,0.2)] transition-all duration-500 hover:-translate-y-2 border border-transparent hover:border-emerald-500/30"
+      className="glass-card flex flex-col relative overflow-hidden group min-h-[500px] p-0 transform-gpu transition-all duration-500 border border-slate-200/50 dark:border-white/5 hover:border-emerald-500/30 border-beam"
     >
-      <div className="relative w-full h-56 overflow-hidden shrink-0 hidden sm:block">
-        <div className="absolute inset-0 bg-white/60 dark:bg-slate-900/60 group-hover:bg-white/20 dark:group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
-        <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+      {/* Dynamic Spotlight Glow */}
+      <motion.div 
+        className="absolute inset-0 z-0 pointer-events-none transition-opacity duration-500 opacity-0 group-hover:opacity-100"
+        style={{ background: spotlightBackground }}
+      />
+
+      <div className="relative w-full h-64 overflow-hidden shrink-0 hidden sm:block">
+        <div className="absolute inset-0 bg-slate-900/10 dark:bg-slate-900/40 group-hover:bg-transparent transition-colors duration-700 z-10 pointer-events-none"></div>
+        <motion.img 
+          src={project.image} 
+          alt={project.title} 
+          style={{ x: imagePanX, y: imagePanY, scale: 1.1 }}
+          className="w-[110%] h-[110%] -left-[5%] -top-[5%] object-cover transition-transform duration-700 ease-out" 
+        />
         
-        <div className="absolute top-4 left-4 z-20 w-10 h-10 rounded-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md flex items-center justify-center border border-emerald-500/50 text-emerald-600 dark:text-emerald-400 font-bold">
+        <div className="absolute top-6 left-6 z-20 w-12 h-12 rounded-2xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl flex items-center justify-center border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 font-bold shadow-lg group-hover:-translate-y-1 transition-transform duration-500">
           {index + 1}
         </div>
         
-        <div className="absolute top-4 right-4 z-20 flex gap-3">
-            <a href={project.github} target="_blank" rel="noopener noreferrer" onPointerDown={(e) => e.stopPropagation()} className="w-10 h-10 rounded-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md flex items-center justify-center border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-500/50 transition-all cursor-pointer">
-              <Github className="w-5 h-5" />
-            </a>
-            <a href={project.live} target="_blank" rel="noopener noreferrer" onPointerDown={(e) => e.stopPropagation()} className="w-10 h-10 rounded-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md flex items-center justify-center border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-500/50 transition-all cursor-pointer">
-              <ExternalLink className="w-5 h-5" />
-            </a>
+        <div className="absolute top-6 right-6 z-20 flex gap-3">
+            <Magnetic>
+              <a href={project.github} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-2xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl flex items-center justify-center border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-500/50 transition-all shadow-lg">
+                <Github className="w-6 h-6" />
+              </a>
+            </Magnetic>
+            <Magnetic>
+              <a href={project.live} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-2xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl flex items-center justify-center border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-500/50 transition-all shadow-lg">
+                <ExternalLink className="w-6 h-6" />
+              </a>
+            </Magnetic>
         </div>
       </div>
       
-      <div className="p-6 md:p-8 flex flex-col flex-1 relative z-20">
-        <div className="flex justify-between items-start mb-4">
-          <h3 className="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors leading-tight">{project.title}</h3>
+      <div className="p-8 flex flex-col flex-1 relative z-20">
+        <div className="flex justify-between items-start mb-6">
+          <h3 className="text-3xl font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors leading-tight duration-500">{project.title}</h3>
           
-          {/* Mobile only links */}
-          <div className="flex gap-3 sm:hidden relative z-50">
-            <a href={project.github} target="_blank" rel="noopener noreferrer" onPointerDown={(e) => e.stopPropagation()} className="text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-              <Github className="w-5 h-5" />
+          <div className="flex gap-4 sm:hidden">
+            <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+              <Github className="w-6 h-6" />
             </a>
-            <a href={project.live} target="_blank" rel="noopener noreferrer" onPointerDown={(e) => e.stopPropagation()} className="text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400">
-              <ExternalLink className="w-5 h-5" />
+            <a href={project.live} target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+              <ExternalLink className="w-6 h-6" />
             </a>
           </div>
         </div>
         
-        {project.date && <span className="text-xs font-mono text-emerald-600 dark:text-emerald-400 mb-4 block">{project.date}</span>}
+        {project.date && (
+          <div className="flex items-center gap-2 mb-4">
+            <span className="h-[1px] w-8 bg-emerald-500/30"></span>
+            <span className="text-xs font-mono font-semibold tracking-widest text-emerald-600 dark:text-emerald-400 uppercase">{project.date}</span>
+          </div>
+        )}
         
-        <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm mb-6 flex-1">
+        <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-base mb-8 flex-1 group-hover:text-slate-900 dark:group-hover:text-slate-300 transition-colors duration-500">
           {project.description}
         </p>
         
-        <div className="flex flex-wrap items-center gap-3 mt-auto pt-4 border-t border-slate-200 dark:border-slate-800 relative z-50 transition-colors">
+        <div className="flex flex-wrap items-center gap-4 mt-auto pt-6 border-t border-slate-200 dark:border-white/5">
           <div className="flex flex-wrap gap-2 flex-1">
             {project.tech.map((t, i) => (
-              <span key={i} className="text-xs font-mono text-emerald-700 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-500/10 px-2 py-1 rounded transition-colors">
+              <motion.span 
+                key={i}
+                initial={{ opacity: 0.8, scale: 1 }}
+                whileHover={{ scale: 1.1, opacity: 1, backgroundColor: 'rgba(16, 185, 129, 0.2)' }}
+                className="text-[10px] font-mono font-bold tracking-tighter text-emerald-700 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-500/10 px-3 py-1 rounded-lg border border-emerald-500/10 transition-all cursor-default"
+              >
                 {t}
-              </span>
+              </motion.span>
             ))}
           </div>
-          <Link 
-            to={`/project/${project.id}`}
-            onPointerDown={(e) => e.stopPropagation()}
-            className="ml-auto text-xs font-bold text-white bg-emerald-500 hover:bg-emerald-600 py-2 px-4 rounded-full transition-colors cursor-pointer shrink-0"
-          >
-            Details
-          </Link>
+          
+          <Magnetic>
+            <Link 
+              to={`/project/${project.id}`}
+              className="group/btn relative overflow-hidden ml-auto text-xs font-bold text-white bg-emerald-500 py-3 px-6 rounded-2xl transition-all shadow-lg hover:shadow-emerald-500/25 active:scale-95 flex items-center gap-2"
+            >
+              <span className="relative z-10">Details</span>
+              <ArrowUpRight className="w-4 h-4 relative z-10 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+              <div className="absolute inset-0 bg-emerald-600 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300" />
+            </Link>
+          </Magnetic>
         </div>
       </div>
     </motion.div>

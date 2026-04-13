@@ -52,6 +52,41 @@
   .box-glow {
     box-shadow: 0 0 15px rgba(16, 185, 129, 0.2), 0 0 30px rgba(16, 185, 129, 0.1);
   }
+
+  .border-beam {
+    position: relative;
+  }
+
+  .border-beam::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    padding: 1px;
+    border-radius: inherit;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0,
+      transparent 25%,
+      var(--color-primary) 50%,
+      transparent 75%,
+      transparent 100%
+    );
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+
+  .group:hover .border-beam::before {
+    opacity: 1;
+    animation: border-beam-spin 4s linear infinite;
+  }
+
+  @keyframes border-beam-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
 }
 
 html {
