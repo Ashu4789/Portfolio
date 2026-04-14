@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin, Send, Code2, Instagram } from 'lucide-react';
+import { Mail, Github, Linkedin, Send, Code2, Instagram , Youtube} from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -88,6 +88,9 @@ const Contact = () => {
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
               </svg>
+            </a>
+            <a href="https://www.youtube.com/@BlackRipper47" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass flex items-center justify-center rounded-full hover:bg-emerald-500 hover:text-white dark:hover:text-white transition-all duration-300 text-slate-600 dark:text-slate-300 hover:scale-110 hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(16,185,129,0.25)]" title="Youtube">
+              <Youtube className="w-5 h-5" />
             </a>
             <a href="https://www.instagram.com/ashu_4789x/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 glass flex items-center justify-center rounded-full hover:bg-emerald-500 hover:text-white dark:hover:text-white transition-all duration-300 text-slate-600 dark:text-slate-300 hover:scale-110 hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(16,185,129,0.25)]" title="Instagram">
               <Instagram className="w-5 h-5" />
