@@ -1,14 +1,51 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
-import { Terminal as TerminalIcon, X, Maximize2, Minimize2 } from 'lucide-react';
+import { Terminal as TerminalIcon, X, Maximize2, Minimize2, ChevronRight, Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
+
+const CV_DATA = {
+  name: "Ashutosh Mohanty",
+  location: "Punjab, India",
+  email: "ashutoshmohanty2004@gmail.com",
+  phone: "+91 9348825087",
+  socials: {
+    github: "github.com/Ashu4789",
+    linkedin: "linkedin.com/in/ashutoshmohanty24"
+  },
+  summary: "Computer Science undergraduate and Full Stack Developer with hands-on experience building scalable web applications using React, Node.js, Express, and modern databases.",
+  skills: {
+    languages: ["C", "C++", "JavaScript", "Python", "Java", "PHP"],
+    frontend: ["React.js", "HTML5", "CSS3", "Tailwind CSS", "Responsive UI/UX Design"],
+    backend: ["Node.js", "Express.js", "REST API Development", "Server-side Architecture"],
+    databases: ["MongoDB", "MySQL", "PostgreSQL"],
+    tools: ["Git & GitHub", "Docker", "Linux", "AWS EC2", "Vercel"]
+  },
+  education: [
+    { school: "Lovely Professional University", degree: "B.Tech CSE", period: "2023 - 2027", score: "CGPA: 8.17" },
+    { school: "Prabhujee English Medium School", degree: "Class XII", period: "2021 - 2023", score: "82.8%" },
+    { school: "Prabhujee English Medium School", degree: "Class X", period: "2019 - 2021", score: "97.4%" }
+  ],
+  achievements: [
+    "Solved 200+ Data Structures and Algorithms Problems (LeetCode & others)",
+    "1st Position — Zerodha Varsity Quiz (University Level)",
+    "Felicitated at Vikas Mela 2025 — Government of Odisha"
+  ],
+  projects: [
+    { name: "NationalAccounts", tech: "React, Node, MongoDB", desc: "Data analytics dashboard for macroeconomic datasets." },
+    { name: "TourGuide", tech: "PHP, MySQL, JS", desc: "Travel agency management platform." },
+    { name: "TravelBot", tech: "JS, Gemini API", desc: "AI-powered travel planning chatbot." },
+    { name: "ArchitecturePortfolio", tech: "MERN Stack", desc: "Full stack architecture firm platform." },
+    { name: "BubbleBot", tech: "React, Node", desc: "Modern robotics project website." },
+    { name: "IPCDebugger", tech: "Python, Tkinter", desc: "Visual debugging tool for OS IPC mechanisms." }
+  ]
+};
 
 const TerminalOverlay = () => {
   const { showTerminal, toggleTerminal, primaryColor } = useTheme();
   const [history, setHistory] = useState([
-    { type: 'info', content: 'Ashutosh OS v1.0.0 (Kernel 2023.27)' },
-    { type: 'info', content: 'Copyright (c) 2026 Ashutosh Mohanty. All rights reserved.' },
-    { type: 'info', content: 'Type "help" for a list of available commands.' },
+    { type: 'info', content: 'Ashutosh OS [Version 1.2.4]' },
+    { type: 'info', content: '(c) Ashutosh Mohanty. All rights reserved.' },
+    { type: 'info', content: 'System initialized. Type "help" to begin exploration.' },
     { type: 'info', content: '' },
   ]);
   const [inputValue, setInputValue] = useState('');
@@ -28,53 +65,151 @@ const TerminalOverlay = () => {
     }
   }, [history]);
 
-  const handleCommand = (cmd) => {
-    const cleanCmd = cmd.toLowerCase().trim();
-    const newHistory = [...history, { type: 'command', content: `guest@ashutosho-portfolio:~$ ${cmd}` }];
+  const commands = useMemo(() => ({
+    help: () => {
+      return [
+        { type: 'info', content: 'AVAILABLE COMMANDS:' },
+        { type: 'info', content: '  whoami       - Display developer bio' },
+        { type: 'info', content: '  ls [dir]     - List files or project directories' },
+        { type: 'info', content: '  cat <file>   - Read content of a file' },
+        { type: 'info', content: '  fetch        - System & profile overview' },
+        { type: 'info', content: '  skills       - Show technical proficiency' },
+        { type: 'info', content: '  education    - View academic history' },
+        { type: 'info', content: '  achievements - View certifications & awards' },
+        { type: 'info', content: '  contact      - Get contact details' },
+        { type: 'info', content: '  socials      - Connectivity links' },
+        { type: 'info', content: '  history      - Command history' },
+        { type: 'info', content: '  clear        - Flush terminal screen' },
+        { type: 'info', content: '  exit         - Close terminal session' },
+      ];
+    },
+    whoami: () => [
+      { type: 'info', content: `Identity: ${CV_DATA.name}` },
+      { type: 'info', content: `Role: Full-Stack Developer & CSE Undergraduate` },
+      { type: 'info', content: `Mantra: ${CV_DATA.summary}` },
+    ],
+    ls: (args) => {
+      if (args[0] === 'projects') {
+        return CV_DATA.projects.map(p => ({ type: 'info', content: `drwxr-xr-x  ${p.name}` }));
+      }
+      return [
+        { type: 'info', content: '-r--r--r--  cv.txt' },
+        { type: 'info', content: '-r--r--r--  contact.txt' },
+        { type: 'info', content: 'drwxr-xr-x  projects/' },
+        { type: 'info', content: '-r--r--r--  skills.json' },
+      ];
+    },
+    cat: (args) => {
+      if (!args[0]) return [{ type: 'error', content: 'Usage: cat <filename>' }];
+      
+      const filename = args[0].toLowerCase();
+      if (filename === 'cv.txt') {
+        return [
+          { type: 'info', content: `NAME: ${CV_DATA.name}` },
+          { type: 'info', content: `LOCATION: ${CV_DATA.location}` },
+          { type: 'info', content: `SUMMARY: ${CV_DATA.summary}` },
+          { type: 'info', content: '---' },
+          { type: 'info', content: 'For more details use: education, skills, achievements' }
+        ];
+      }
+      if (filename === 'contact.txt') {
+        return [
+          { type: 'info', content: `Email: ${CV_DATA.email}` },
+          { type: 'info', content: `Phone: ${CV_DATA.phone}` },
+          { type: 'info', content: `GitHub: ${CV_DATA.socials.github}` },
+        ];
+      }
+      if (filename === 'skills.json') {
+        return [
+          { type: 'info', content: JSON.stringify(CV_DATA.skills, null, 2) }
+        ];
+      }
+      
+      // Check for projects
+      const projName = args[0].replace('projects/', '');
+      const project = CV_DATA.projects.find(p => p.name.toLowerCase() === projName.toLowerCase());
+      if (project) {
+        return [
+          { type: 'info', content: `Project: ${project.name}` },
+          { type: 'info', content: `Stack: ${project.tech}` },
+          { type: 'info', content: `Description: ${project.desc}` },
+        ];
+      }
+      
+      return [{ type: 'error', content: `cat: ${args[0]}: No such file or directory` }];
+    },
+    fetch: () => [
+      { type: 'info', content: '       .---.       USER: ashutosh@portfolio' },
+      { type: 'info', content: '      /     \\      OS: AshutoshOS v1.2.4' },
+      { type: 'info', content: '      | () () |     HOST: Lovely Professional University' },
+      { type: 'info', content: '       \\  ^  /      KERNEL: React-Node-2026' },
+      { type: 'info', content: '        |||||       SHELL: portfolio-sh' },
+      { type: 'info', content: '        |||||       UPTIME: 1 year, 2 months' },
+      { type: 'info', content: '                    STACK: MERN, Python, PHP' },
+    ],
+    skills: () => [
+      { type: 'info', content: 'TECHNICAL SKILL MATRIX:' },
+      { type: 'info', content: `[Languages] : ${CV_DATA.skills.languages.join(', ')}` },
+      { type: 'info', content: `[Frontend]  : ${CV_DATA.skills.frontend.slice(0, 3).join(', ')}...` },
+      { type: 'info', content: `[Backend]   : ${CV_DATA.skills.backend.join(', ')}` },
+      { type: 'info', content: `[Databases] : ${CV_DATA.skills.databases.join(', ')}` },
+      { type: 'info', content: `[Tools]     : ${CV_DATA.skills.tools.join(', ')}` },
+    ],
+    education: () => CV_DATA.education.flatMap(e => [
+      { type: 'info', content: `>> ${e.school}` },
+      { type: 'info', content: `   ${e.degree} | ${e.period} | ${e.score}` },
+    ]),
+    achievements: () => CV_DATA.achievements.map(a => ({ type: 'info', content: `* ${a}` })),
+    contact: () => [
+      { type: 'info', content: `Email    : ${CV_DATA.email}` },
+      { type: 'info', content: `Phone    : ${CV_DATA.phone}` },
+      { type: 'info', content: `Location : ${CV_DATA.location}` },
+    ],
+    socials: () => [
+      { type: 'info', content: `GitHub   : ${CV_DATA.socials.github}` },
+      { type: 'info', content: `LinkedIn : ${CV_DATA.socials.linkedin}` },
+    ],
+    history: (allHistory) => {
+      return allHistory
+        .filter(h => h.type === 'command')
+        .map((h, i) => ({ type: 'info', content: ` ${i + 1}  ${h.content.split('~$ ')[1]}` }));
+    },
+    sudo: () => [
+      { type: 'error', content: 'Permission denied: This incident will be reported.' }
+    ],
+    projects: () => CV_DATA.projects.map(p => ({ type: 'info', content: `[${p.name}] - ${p.desc}` })),
+  }), []);
 
-    switch (cleanCmd) {
-      case 'help':
-        newHistory.push({ type: 'info', content: 'Available commands:' });
-        newHistory.push({ type: 'info', content: '  whoami    - Display developer identity' });
-        newHistory.push({ type: 'info', content: '  ls        - List project directories' });
-        newHistory.push({ type: 'info', content: '  skills    - View technical skill matrix' });
-        newHistory.push({ type: 'info', content: '  clear     - Clear the terminal screen' });
-        newHistory.push({ type: 'info', content: '  exit      - Terminate secure session' });
-        newHistory.push({ type: 'info', content: '  theme     - Toggle light/dark interface' });
-        break;
-      case 'whoami':
-        newHistory.push({ type: 'info', content: 'User: Ashutosh Mohanty' });
-        newHistory.push({ type: 'info', content: 'Role: Full-Stack Developer | CSE Student @ LPU' });
-        newHistory.push({ type: 'info', content: 'Status: Actively building innovative web solutions' });
-        break;
-      case 'ls':
-      case 'ls projects':
-        newHistory.push({ type: 'info', content: 'drwxr-xr-x  Ocean_Cleanup_UI' });
-        newHistory.push({ type: 'info', content: 'drwxr-xr-x  Lake_Booking_Service' });
-        newHistory.push({ type: 'info', content: 'drwxr-xr-x  Portfolio_V4' });
-        newHistory.push({ type: 'info', content: 'drwxr-xr-x  ATS_Analyzer_Bot' });
-        break;
-      case 'skills':
-        newHistory.push({ type: 'info', content: '{' });
-        newHistory.push({ type: 'info', content: '  "frontend": ["React", "Tailwind", "Framer Motion"],' });
-        newHistory.push({ type: 'info', content: '  "backend": ["Node.js", "Express", "PHP", "Python"],' });
-        newHistory.push({ type: 'info', content: '  "database": ["MongoDB", "PostgreSQL", "MySQL"]' });
-        newHistory.push({ type: 'info', content: '}' });
-        break;
-      case 'clear':
-        setHistory([]);
-        return;
-      case 'exit':
-        toggleTerminal();
-        return;
-      case 'theme':
-        newHistory.push({ type: 'info', content: 'Theme adjustment detected. Synchronization successful.' });
-        // We could trigger toggleTheme() here if we want to be fancy
-        break;
-      default:
-        if (cleanCmd !== '') {
-          newHistory.push({ type: 'error', content: `Command not found: ${cleanCmd}. Type "help" for a list of commands.` });
-        }
+  const handleCommand = (cmdStr) => {
+    const parts = cmdStr.toLowerCase().trim().split(' ');
+    const cmd = parts[0];
+    const args = parts.slice(1);
+    
+    let newHistory = [...history, { type: 'command', content: `guest@ashutosh-portfolio:~$ ${cmdStr}` }];
+
+    if (cmd === '') {
+      setHistory(newHistory);
+      setInputValue('');
+      return;
+    }
+
+    if (cmd === 'clear') {
+      setHistory([]);
+      setInputValue('');
+      return;
+    }
+
+    if (cmd === 'exit') {
+      toggleTerminal();
+      setInputValue('');
+      return;
+    }
+
+    if (commands[cmd]) {
+      const result = commands[cmd](args, history);
+      newHistory = [...newHistory, ...result];
+    } else {
+      newHistory.push({ type: 'error', content: `Command not found: ${cmd}. Type "help" for a list of commands.` });
     }
 
     setHistory(newHistory);
@@ -142,19 +277,19 @@ const TerminalOverlay = () => {
             {/* Terminal Body */}
             <div 
               ref={scrollRef}
-              className="flex-1 p-6 overflow-y-auto font-mono text-sm space-y-2 custom-scrollbar"
+              className="flex-1 p-6 overflow-y-auto font-mono text-sm space-y-1.5 custom-scrollbar"
             >
               {history.map((line, idx) => (
                 <div 
                   key={idx} 
-                  className={`${line.type === 'error' ? 'text-red-400' : line.type === 'command' ? 'text-white' : 'text-emerald-500/80'}`}
+                  className={`${line.type === 'error' ? 'text-red-400' : line.type === 'command' ? 'text-white font-bold' : 'text-emerald-400/90'}`}
                 >
-                  {line.content}
+                  <span className="whitespace-pre-wrap">{line.content}</span>
                 </div>
               ))}
               
               <div className="flex gap-2 text-white">
-                <span className="text-emerald-500">guest@ashutosh-portfolio:~$</span>
+                <span className="text-emerald-500 font-bold">guest@ashutosh-portfolio:~$</span>
                 <input
                   ref={inputRef}
                   autoFocus
