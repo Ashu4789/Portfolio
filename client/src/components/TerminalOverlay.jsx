@@ -126,50 +126,85 @@ const TerminalOverlay = () => {
   const themeClasses = THEMES[terminalTheme];
 
   const commands = useMemo(() => ({
-    help: () => [
-      { type: 'info', content: 'CORE COMMANDS:' },
-      { type: 'info', content: '  whoami         - Display developer bio' },
-      { type: 'info', content: '  ls             - List project files & directories' },
-      { type: 'info', content: '  fetch          - System & profile overview' },
-      { type: 'info', content: '  skills         - Show technical proficiency matrix' },
-      { type: 'info', content: '  proficiency    - View language skill levels' },
-      { type: 'info', content: '  github         - Coding activity & insights' },
-      { type: 'info', content: '  visit <route>  - Navigate to pages or projects' },
-      { type: 'info', content: '  open <target>  - Open social links in new tab' },
-      { type: 'info', content: '  view <item>    - View credentials or certificates' },
-      { type: 'info', content: '  cv install     - Download official resume' },
-      { type: 'info', content: '  theme <name>   - Change terminal color palette' },
-      { type: 'info', content: '  man <cmd>      - Open manual page for a command' },
-      { type: 'info', content: '  clear | exit   - Interface management' },
+  const manuals = {
+    whoami: [
+      { type: 'info', content: 'NAME: whoami - Identity Disclosure' },
+      { type: 'info', content: 'USAGE: whoami' },
+      { type: 'info', content: 'DESCRIPTION: Displays the developer\'s basic identity and mantra.' },
+      { type: 'info', content: 'EXAMPLE: whoami' }
     ],
+    ls: [
+      { type: 'info', content: 'NAME: ls - List Directory Contents' },
+      { type: 'info', content: 'USAGE: ls [directory]' },
+      { type: 'info', content: 'DESCRIPTION: Lists files or specific project directories.' },
+      { type: 'info', content: 'EXAMPLES:' },
+      { type: 'info', content: '  ls             - List root files' },
+      { type: 'info', content: '  ls projects    - List all project folders' }
+    ],
+    visit: [
+      { type: 'info', content: 'NAME: visit - Navigation Tool' },
+      { type: 'info', content: 'USAGE: visit [home | blog | resume | project <id>]' },
+      { type: 'info', content: 'DESCRIPTION: Navigates to different pages or project details.' },
+      { type: 'info', content: 'EXAMPLES:' },
+      { type: 'info', content: '  visit blog             - Navigate to blog page' },
+      { type: 'info', content: '  visit project bubble   - Open BubbleBot project details' }
+    ],
+    open: [
+      { type: 'info', content: 'NAME: open - Social Link Redirector' },
+      { type: 'info', content: 'USAGE: open [github | linkedin | instagram | youtube | leetcode]' },
+      { type: 'info', content: 'DESCRIPTION: Opens social profiles in a new browser tab.' },
+      { type: 'info', content: 'EXAMPLE: open github' }
+    ],
+    theme: [
+      { type: 'info', content: 'NAME: theme - Visual Environment Switcher' },
+      { type: 'info', content: 'USAGE: theme [emerald | amber | rose | cyan]' },
+      { type: 'info', content: 'DESCRIPTION: Changes the terminal\'s color scheme instantly.' },
+      { type: 'info', content: 'EXAMPLE: theme amber' }
+    ],
+    cv: [
+      { type: 'info', content: 'NAME: cv - Document Installer' },
+      { type: 'info', content: 'USAGE: cv install' },
+      { type: 'info', content: 'DESCRIPTION: Triggers a secure download of the developer\'s resume.' },
+      { type: 'info', content: 'EXAMPLE: cv install' }
+    ],
+    skills: [
+      { type: 'info', content: 'NAME: skills - Technical Matrix' },
+      { type: 'info', content: 'USAGE: skills' },
+      { type: 'info', content: 'DESCRIPTION: Displays the full technical stack and tools.' }
+    ],
+    github: [
+      { type: 'info', content: 'NAME: github - Activity Insights' },
+      { type: 'info', content: 'USAGE: github' },
+      { type: 'info', content: 'DESCRIPTION: Displays real-time coding stats and GitHub profile overview.' }
+    ]
+  };
+
+  const commands = useMemo(() => ({
+    help: (args) => {
+      if (args[0] && manuals[args[0].toLowerCase()]) {
+        return manuals[args[0].toLowerCase()];
+      }
+      return [
+        { type: 'info', content: '--- TERMINAL COMMAND MANUAL ---' },
+        { type: 'info', content: 'Type "help <command>" for detailed info.' },
+        { type: 'info', content: '' },
+        { type: 'info', content: 'whoami         - View developer bio. (Ex: whoami)' },
+        { type: 'info', content: 'ls             - List files. (Ex: ls projects)' },
+        { type: 'info', content: 'visit          - Navigate site. (Ex: visit blog)' },
+        { type: 'info', content: 'open           - Open socials. (Ex: open leetcode)' },
+        { type: 'info', content: 'view           - View credentials. (Ex: view credentials)' },
+        { type: 'info', content: 'cv install     - Download CV. (Ex: cv install)' },
+        { type: 'info', content: 'theme          - Change colors. (Ex: theme matrix)' },
+        { type: 'info', content: 'skills         - View tech stack. (Ex: skills)' },
+        { type: 'info', content: 'proficiency    - Language levels. (Ex: proficiency)' },
+        { type: 'info', content: 'github         - Coding activity. (Ex: github)' },
+        { type: 'info', content: 'fetch          - System overview. (Ex: fetch)' },
+        { type: 'info', content: 'clear | exit   - Interface control.' },
+      ];
+    },
     man: (args) => {
       if (!args[0]) return [{ type: 'error', content: 'What manual page do you want? Try "man visit".' }];
       const cmd = args[0].toLowerCase();
-      const manuals = {
-        visit: [
-          { type: 'info', content: 'NAME: visit - Site Navigation Tool' },
-          { type: 'info', content: 'USAGE: visit [home | blog | resume | project <id>]' },
-          { type: 'info', content: 'DESCRIPTION: Seamlessly navigates between portfolio sections.' },
-          { type: 'info', content: 'EXAMPLES:' },
-          { type: 'info', content: '  visit blog             - Go to blog index' },
-          { type: 'info', content: '  visit project bubble   - Open BubbleBot details' }
-        ],
-        open: [
-          { type: 'info', content: 'NAME: open - Redirection Linker' },
-          { type: 'info', content: 'USAGE: open [github | linkedin | instagram | youtube | leetcode]' },
-          { type: 'info', content: 'DESCRIPTION: Opens specified social profiles in new browser tabs.' }
-        ],
-        theme: [
-          { type: 'info', content: 'NAME: theme - Visual Styler' },
-          { type: 'info', content: 'USAGE: theme [emerald | amber | rose | cyan]' },
-          { type: 'info', content: 'DESCRIPTION: Hot-swaps the terminal visual interface color palette.' }
-        ],
-        cv: [
-          { type: 'info', content: 'NAME: cv - Document Downloader' },
-          { type: 'info', content: 'USAGE: cv install' },
-          { type: 'info', content: 'DESCRIPTION: Triggers a secure download of the latest PDF resume.' }
-        ]
-      };
       return manuals[cmd] || [{ type: 'error', content: `No manual entry for: ${cmd}` }];
     },
     whoami: () => [
