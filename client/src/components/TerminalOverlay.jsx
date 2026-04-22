@@ -125,7 +125,6 @@ const TerminalOverlay = () => {
 
   const themeClasses = THEMES[terminalTheme];
 
-  const commands = useMemo(() => ({
   const manuals = {
     whoami: [
       { type: 'info', content: 'NAME: whoami - Identity Disclosure' },
@@ -194,7 +193,7 @@ const TerminalOverlay = () => {
         { type: 'info', content: 'open           - Open socials. (Ex: open leetcode)' },
         { type: 'info', content: 'view           - View credentials. (Ex: view credentials)' },
         { type: 'info', content: 'cv install     - Download CV. (Ex: cv install)' },
-        { type: 'info', content: 'theme          - Change colors. (Ex: theme matrix)' },
+        { type: 'info', content: 'theme          - Change colors. (Ex: theme cyan)' },
         { type: 'info', content: 'skills         - View tech stack. (Ex: skills)' },
         { type: 'info', content: 'proficiency    - Language levels. (Ex: proficiency)' },
         { type: 'info', content: 'github         - Coding activity. (Ex: github)' },
@@ -323,7 +322,7 @@ const TerminalOverlay = () => {
       toggleTerminal();
       return [];
     },
-    history: (allHistory) => {
+    history: (args, allHistory) => {
       return allHistory
         .filter(h => h.type === 'command')
         .map((h, i) => ({ type: 'info', content: ` ${i + 1}  ${h.content.split('~$ ')[1]}` }));
