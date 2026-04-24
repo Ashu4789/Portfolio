@@ -47,7 +47,7 @@ const GithubStats = () => {
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors"
           >
-            Follow me on GitHub
+            Follow on GitHub
           </a>
         </div>
       </motion.div>
