@@ -12,14 +12,14 @@ const educationData = [
   {
     degree: "Intermediate (Class XII)",
     institution: "Prabhujee English Medium School, Bhubaneswar",
-    period: "2021 – 2023",
+    period: "2020 – 2022",
     details: "Score: 82.8%. Strong foundation in Physics, Chemistry, and Mathematics.",
     image: "https://images.unsplash.com/photo-1541339907198-e08756ebafe1?q=80&w=2070&auto=format&fit=crop"
   },
   {
     degree: "Matriculation (Class X)",
     institution: "Prabhujee English Medium School, Bhubaneswar",
-    period: "2021",
+    period: "2020",
     details: "Score: 97.4%. Consistent academic excellence with a focus on core analytical subjects.",
     image: "https://images.unsplash.com/photo-152305085306e-52627e16db73?q=80&w=2070&auto=format&fit=crop"
   }
