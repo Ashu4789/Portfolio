@@ -300,7 +300,7 @@ const TerminalOverlay = () => {
         document.body.removeChild(link);
         return [
           { type: 'info', content: 'Installing Ashutosh_Mohanty_CV.pdf...' },
-          { type: 'success', content: 'Download started successfully.' }
+          { type: 'success', content: 'Download started successfully...' }
         ];
       }
       return [{ type: 'error', content: 'Usage: cv install' }];

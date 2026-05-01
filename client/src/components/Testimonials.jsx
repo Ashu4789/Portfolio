@@ -21,7 +21,7 @@ const testimonialsData = [
     id: 3,
     content: "The architectural portfolio he built for MKP Designs was exactly what we envisioned. It’s fast, incredibly smooth, and perfectly captures our brand identity. Highly recommended!",
     author: "Mohit Kumar Patel",
-    role: "Founder, MKP Designs",
+    role: "Founder, MKP Designs ltd.",
     avatar: "https://ui-avatars.com/api/?name=Mohit+Kumar+Patel&background=ef4444&color=fff"
   }
 ];
